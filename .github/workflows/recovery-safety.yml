@@ -28,4 +28,4 @@ jobs:
       - name: Install test driver
         run: python -m pip install tox
       - name: Full native safety and project checks
-        run: python -m tox -e py
+        run: python -m tox -e py -- -v -rs
