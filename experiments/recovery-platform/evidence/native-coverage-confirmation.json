@@ -1,0 +1,86 @@
+{
+  "linux": {
+    "native_recovery_nodes": 26,
+    "passed": 26,
+    "skipped_recovery_nodes": 0,
+    "node_lines": [
+      "2026-10-29T01:36:52.6316967Z tests/test_path.py::TestInPlace::test_line_by_line_rewrite PASSED        [ 78%]",
+      "2026-10-29T01:36:52.6330009Z tests/test_path.py::TestInPlace::test_exception_in_context PASSED        [ 78%]",
+      "2026-10-29T01:36:52.6345388Z tests/test_path.py::TestInPlace::test_reader_setup_failure_restores_file[options0-LookupError] PASSED [ 79%]",
+      "2026-10-29T01:36:52.6359517Z tests/test_path.py::TestInPlace::test_reader_setup_failure_restores_file[options1-ValueError] PASSED [ 79%]",
+      "2026-10-29T01:36:52.6372464Z tests/test_path.py::TestInPlace::test_writer_setup_failure_restores_file PASSED [ 80%]",
+      "2026-10-29T01:36:52.6386465Z tests/test_path.py::TestInPlace::test_writer_wrapping_failure_closes_resources PASSED [ 80%]",
+      "2026-10-29T01:36:52.6401769Z tests/test_path.py::TestInPlace::test_base_exception_restores_file[reader-KeyboardInterrupt] PASSED [ 81%]",
+      "2026-10-29T01:36:52.6416578Z tests/test_path.py::TestInPlace::test_base_exception_restores_file[reader-SystemExit] PASSED [ 81%]",
+      "2026-10-29T01:36:52.6431091Z tests/test_path.py::TestInPlace::test_base_exception_restores_file[writer-KeyboardInterrupt] PASSED [ 82%]",
+      "2026-10-29T01:36:52.6445502Z tests/test_path.py::TestInPlace::test_base_exception_restores_file[writer-SystemExit] PASSED [ 82%]",
+      "2026-10-29T01:36:52.6460290Z tests/test_path.py::TestInPlace::test_base_exception_restores_file[body-KeyboardInterrupt] PASSED [ 83%]",
+      "2026-10-29T01:36:52.6475322Z tests/test_path.py::TestInPlace::test_base_exception_restores_file[body-SystemExit] PASSED [ 84%]",
+      "2026-10-29T01:36:52.6489432Z tests/test_path.py::TestInPlace::test_failed_restore_retains_backup[setup] PASSED [ 84%]",
+      "2026-10-29T01:36:52.6503145Z tests/test_path.py::TestInPlace::test_failed_restore_retains_backup[body] PASSED [ 85%]",
+      "2026-10-29T01:36:52.6517484Z tests/test_path.py::TestInPlace::test_interrupted_writer_setup_closes_resources[KeyboardInterrupt] PASSED [ 85%]",
+      "2026-10-29T01:36:52.6531458Z tests/test_path.py::TestInPlace::test_interrupted_writer_setup_closes_resources[SystemExit] PASSED [ 86%]",
+      "2026-10-29T01:36:52.6546234Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[None-r] PASSED [ 86%]",
+      "2026-10-29T01:36:52.6560590Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[None-rb] PASSED [ 87%]",
+      "2026-10-29T01:36:52.6575016Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[RuntimeError-r] PASSED [ 87%]",
+      "2026-10-29T01:36:52.6589585Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[RuntimeError-rb] PASSED [ 88%]",
+      "2026-10-29T01:36:52.6603913Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[KeyboardInterrupt-r] PASSED [ 88%]",
+      "2026-10-29T01:36:52.6618605Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[KeyboardInterrupt-rb] PASSED [ 89%]",
+      "2026-10-29T01:36:52.6632745Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[SystemExit-r] PASSED [ 89%]",
+      "2026-10-29T01:36:52.6647282Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[SystemExit-rb] PASSED [ 90%]",
+      "2026-10-29T01:36:52.6660361Z tests/test_path.py::TestInPlace::test_failed_rollback_unlink_retains_original_backup PASSED [ 90%]",
+      "2026-10-29T01:36:52.6670661Z tests/test_path.py::TestInPlace::test_write_mode_invalid PASSED          [ 91%]"
+    ],
+    "skip_reasons": [
+      "2026-10-29T01:36:53.5371010Z SKIPPED [1] tests/test_path.py:450: condition: not hasattr(Path, 'startfile')"
+    ],
+    "full_summary": [
+      "2026-10-29T01:36:53.5371392Z ======================== 187 passed, 1 skipped in 8.14s ========================"
+    ]
+  },
+  "windows": {
+    "native_recovery_nodes": 26,
+    "passed": 26,
+    "skipped_recovery_nodes": 0,
+    "node_lines": [
+      "2026-10-29T01:37:27.1114862Z tests/test_path.py::TestInPlace::test_line_by_line_rewrite PASSED        [ 78%]",
+      "2026-10-29T01:37:27.1617015Z tests/test_path.py::TestInPlace::test_exception_in_context PASSED        [ 78%]",
+      "2026-10-29T01:37:27.1618670Z tests/test_path.py::TestInPlace::test_reader_setup_failure_restores_file[options0-LookupError] PASSED [ 79%]",
+      "2026-10-29T01:37:27.1619999Z tests/test_path.py::TestInPlace::test_reader_setup_failure_restores_file[options1-ValueError] PASSED [ 79%]",
+      "2026-10-29T01:37:27.1621170Z tests/test_path.py::TestInPlace::test_writer_setup_failure_restores_file PASSED [ 80%]",
+      "2026-10-29T01:37:27.1622205Z tests/test_path.py::TestInPlace::test_writer_wrapping_failure_closes_resources PASSED [ 80%]",
+      "2026-10-29T01:37:27.1623417Z tests/test_path.py::TestInPlace::test_base_exception_restores_file[reader-KeyboardInterrupt] PASSED [ 81%]",
+      "2026-10-29T01:37:27.1624682Z tests/test_path.py::TestInPlace::test_base_exception_restores_file[reader-SystemExit] PASSED [ 81%]",
+      "2026-10-29T01:37:27.1625930Z tests/test_path.py::TestInPlace::test_base_exception_restores_file[writer-KeyboardInterrupt] PASSED [ 82%]",
+      "2026-10-29T01:37:27.1627140Z tests/test_path.py::TestInPlace::test_base_exception_restores_file[writer-SystemExit] PASSED [ 82%]",
+      "2026-10-29T01:37:27.2131267Z tests/test_path.py::TestInPlace::test_base_exception_restores_file[body-KeyboardInterrupt] PASSED [ 83%]",
+      "2026-10-29T01:37:27.2133369Z tests/test_path.py::TestInPlace::test_base_exception_restores_file[body-SystemExit] PASSED [ 84%]",
+      "2026-10-29T01:37:27.2134468Z tests/test_path.py::TestInPlace::test_failed_restore_retains_backup[setup] PASSED [ 84%]",
+      "2026-10-29T01:37:27.2135463Z tests/test_path.py::TestInPlace::test_failed_restore_retains_backup[body] PASSED [ 85%]",
+      "2026-10-29T01:37:27.2136620Z tests/test_path.py::TestInPlace::test_interrupted_writer_setup_closes_resources[KeyboardInterrupt] PASSED [ 85%]",
+      "2026-10-29T01:37:27.2137875Z tests/test_path.py::TestInPlace::test_interrupted_writer_setup_closes_resources[SystemExit] PASSED [ 86%]",
+      "2026-10-29T01:37:27.2138985Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[None-r] PASSED [ 86%]",
+      "2026-10-29T01:37:27.2139985Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[None-rb] PASSED [ 87%]",
+      "2026-10-29T01:37:27.2645587Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[RuntimeError-r] PASSED [ 87%]",
+      "2026-10-29T01:37:27.2647100Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[RuntimeError-rb] PASSED [ 88%]",
+      "2026-10-29T01:37:27.2648287Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[KeyboardInterrupt-r] PASSED [ 88%]",
+      "2026-10-29T01:37:27.2649165Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[KeyboardInterrupt-rb] PASSED [ 89%]",
+      "2026-10-29T01:37:27.2649849Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[SystemExit-r] PASSED [ 89%]",
+      "2026-10-29T01:37:27.2650504Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[SystemExit-rb] PASSED [ 90%]",
+      "2026-10-29T01:37:27.2651189Z tests/test_path.py::TestInPlace::test_failed_rollback_unlink_retains_original_backup PASSED [ 90%]",
+      "2026-10-29T01:37:27.2651797Z tests/test_path.py::TestInPlace::test_write_mode_invalid PASSED          [ 91%]"
+    ],
+    "skip_reasons": [
+      "2026-10-29T01:37:28.4778354Z SKIPPED [1] tests\\test_path.py:257: condition: not hasattr(os, 'statvfs')",
+      "2026-10-29T01:37:28.4778815Z SKIPPED [1] tests\\test_path.py:261: condition: not hasattr(os, 'pathconf')",
+      "2026-10-29T01:37:28.4779249Z SKIPPED [1] tests\\test_path.py:278: condition: not hasattr(Path, 'chown')",
+      "2026-10-29T01:37:28.4779672Z SKIPPED [1] tests\\test_path.py:307: condition: not hasattr(Path, 'group')",
+      "2026-10-29T01:37:28.4780233Z SKIPPED [1] tests\\test_path.py:345: condition: platform.system() == \"Windows\" and sys.version_info > (3, 12)",
+      "2026-10-29T01:37:28.4780800Z SKIPPED [1] tests\\test_path.py:442: condition: not hasattr(Path, 'chroot')",
+      "2026-10-29T01:37:28.4781733Z SKIPPED [1] tests\\test_path.py:582: Invalid encodings disallowed [Errno 2] No such file or directory: b'C:\\\\Users\\\\runneradmin\\\\AppData\\\\Local\\\\Temp\\\\pytest-of-unknown\\\\pytest-0\\\\test_iterdir_other_encoding0\\\\r\\\\xe9\\\\xf1emi'"
+    ],
+    "full_summary": [
+      "2026-10-29T01:37:28.4782626Z ======================= 181 passed, 7 skipped in 15.64s ======================="
+    ]
+  }
+}

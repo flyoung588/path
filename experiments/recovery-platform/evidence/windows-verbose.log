@@ -1,0 +1,546 @@
+﻿2026-10-29T01:36:22.6595223Z Current runner version: '2.338.0'
+2026-10-29T01:36:22.6624949Z ##[group]Runner Image Provisioner
+2026-10-29T01:36:22.6625871Z Hosted Compute Agent
+2026-10-29T01:36:22.6626437Z Version: 20261021.618
+2026-10-29T01:36:22.6627051Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-10-29T01:36:22.6627743Z Build Date: 2026-10-21T00:45:21Z
+2026-10-29T01:36:22.6628391Z Worker ID: {41569300-602f-4a6f-9b85-55d7bcb6f72c}
+2026-10-29T01:36:22.6629544Z Region: westus2
+2026-10-29T01:36:22.6630135Z Cloud: Azure
+2026-10-29T01:36:22.6630651Z ##[endgroup]
+2026-10-29T01:36:22.6632131Z ##[group]Operating System
+2026-10-29T01:36:22.6632806Z Microsoft Windows Server 2025
+2026-10-29T01:36:22.6633576Z 10.0.26100
+2026-10-29T01:36:22.6634662Z Datacenter
+2026-10-29T01:36:22.6635433Z ##[endgroup]
+2026-10-29T01:36:22.6636194Z ##[group]Runner Image
+2026-10-29T01:36:22.6637018Z Image: windows-2025-vs2026
+2026-10-29T01:36:22.6638004Z Version: 20261021.278.1
+2026-10-29T01:36:22.6639579Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261021.278/images/windows/Windows2025-VS2026-Readme.md
+2026-10-29T01:36:22.6641971Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261021.278
+2026-10-29T01:36:22.6642946Z ##[endgroup]
+2026-10-29T01:36:22.6644081Z ##[group]GITHUB_TOKEN Permissions
+2026-10-29T01:36:22.6646015Z Contents: read
+2026-10-29T01:36:22.6646702Z Metadata: read
+2026-10-29T01:36:22.6647274Z ##[endgroup]
+2026-10-29T01:36:22.6649523Z Secret source: Actions
+2026-10-29T01:36:22.6650438Z Cache mode: write
+2026-10-29T01:36:22.6651265Z Prepare workflow directory
+2026-10-29T01:36:22.7190286Z Prepare all required actions
+2026-10-29T01:36:22.7300967Z Getting action download info
+2026-10-29T01:36:23.0714613Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-29T01:36:23.2190576Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-29T01:36:23.5244520Z Complete job name: Python 3.13 - windows-latest
+2026-10-29T01:36:23.6724087Z ##[group]Run actions/checkout@v4
+2026-10-29T01:36:23.6725171Z with:
+2026-10-29T01:36:23.6725571Z   fetch-depth: 0
+2026-10-29T01:36:23.6726015Z   persist-credentials: false
+2026-10-29T01:36:23.6726515Z   repository: flyoung588/path
+2026-10-29T01:36:23.6730145Z   token: ***
+2026-10-29T01:36:23.6730551Z   ssh-strict: true
+2026-10-29T01:36:23.6730955Z   ssh-user: git
+2026-10-29T01:36:23.6731349Z   clean: true
+2026-10-29T01:36:23.6731764Z   sparse-checkout-cone-mode: true
+2026-10-29T01:36:23.6732258Z   fetch-tags: false
+2026-10-29T01:36:23.6732673Z   show-progress: true
+2026-10-29T01:36:23.6733086Z   lfs: false
+2026-10-29T01:36:23.6733492Z   submodules: false
+2026-10-29T01:36:23.6733913Z   set-safe-directory: true
+2026-10-29T01:36:23.6734388Z   allow-unsafe-pr-checkout: false
+2026-10-29T01:36:23.6735109Z ##[endgroup]
+2026-10-29T01:36:23.8340000Z Syncing repository: flyoung588/path
+2026-10-29T01:36:23.8341969Z ##[group]Getting Git version info
+2026-10-29T01:36:23.8342651Z Working directory is 'D:\a\path\path'
+2026-10-29T01:36:23.9314139Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-29T01:36:24.5531854Z git version 2.56.0.windows.2
+2026-10-29T01:36:24.5593950Z ##[endgroup]
+2026-10-29T01:36:24.5616566Z Temporarily overriding HOME='D:\a\_temp\454c1b68-fd7f-45b7-a724-c9c67f2c9983' before making global git config changes
+2026-10-29T01:36:24.5619033Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-29T01:36:24.5629009Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\path\path
+2026-10-29T01:36:24.6282238Z Deleting the contents of 'D:\a\path\path'
+2026-10-29T01:36:24.6288626Z ##[group]Initializing the repository
+2026-10-29T01:36:24.6297986Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\path\path
+2026-10-29T01:36:24.7262313Z Initialized empty Git repository in D:/a/path/path/.git/
+2026-10-29T01:36:24.7318572Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/flyoung588/path
+2026-10-29T01:36:24.7998725Z ##[endgroup]
+2026-10-29T01:36:24.8000595Z ##[group]Disabling automatic garbage collection
+2026-10-29T01:36:24.8007685Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-10-29T01:36:24.8433097Z ##[endgroup]
+2026-10-29T01:36:24.8446938Z ##[group]Setting up auth
+2026-10-29T01:36:24.8448273Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-29T01:36:24.8937532Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-29T01:36:26.2904376Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-29T01:36:26.3326832Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-29T01:36:26.9636146Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-29T01:36:27.0053446Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-29T01:36:27.6131815Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-10-29T01:36:27.6609703Z ##[endgroup]
+2026-10-29T01:36:27.6610906Z ##[group]Fetching the repository
+2026-10-29T01:36:27.6632383Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-10-29T01:36:29.0732913Z From https://github.com/flyoung588/path
+2026-10-29T01:36:29.0738246Z  * [new branch]      ci/recovery-safety-linux-windows-20261029 -> origin/ci/recovery-safety-linux-windows-20261029
+2026-10-29T01:36:29.0740072Z  * [new branch]      experiment/in-place-recovery-evidence-20261029 -> origin/experiment/in-place-recovery-evidence-20261029
+2026-10-29T01:36:29.0741626Z  * [new branch]      experiment/recovery-platform-evidence-20261029 -> origin/experiment/recovery-platform-evidence-20261029
+2026-10-29T01:36:29.0742537Z  * [new branch]      experiment/recovery-safety-evidence-20261029 -> origin/experiment/recovery-safety-evidence-20261029
+2026-10-29T01:36:29.0744363Z  * [new branch]      fix/in-place-interruption-recovery -> origin/fix/in-place-interruption-recovery
+2026-10-29T01:36:29.0745690Z  * [new branch]      main           -> origin/main
+2026-10-29T01:36:29.0746040Z  * [new tag]         10.0           -> 10.0
+2026-10-29T01:36:29.0746300Z  * [new tag]         10.1           -> 10.1
+2026-10-29T01:36:29.0746568Z  * [new tag]         10.2           -> 10.2
+2026-10-29T01:36:29.0746875Z  * [new tag]         10.3           -> 10.3
+2026-10-29T01:36:29.0747224Z  * [new tag]         10.3.1         -> 10.3.1
+2026-10-29T01:36:29.0747533Z  * [new tag]         10.4           -> 10.4
+2026-10-29T01:36:29.0747772Z  * [new tag]         10.5           -> 10.5
+2026-10-29T01:36:29.0748218Z  * [new tag]         10.6           -> 10.6
+2026-10-29T01:36:29.0748482Z  * [new tag]         11.0           -> 11.0
+2026-10-29T01:36:29.0748734Z  * [new tag]         11.0.1         -> 11.0.1
+2026-10-29T01:36:29.0748990Z  * [new tag]         11.1.0         -> 11.1.0
+2026-10-29T01:36:29.0749245Z  * [new tag]         11.2.0         -> 11.2.0
+2026-10-29T01:36:29.0749495Z  * [new tag]         11.3.0         -> 11.3.0
+2026-10-29T01:36:29.0749790Z  * [new tag]         11.4.0         -> 11.4.0
+2026-10-29T01:36:29.0750032Z  * [new tag]         11.4.1         -> 11.4.1
+2026-10-29T01:36:29.0750285Z  * [new tag]         11.5.0         -> 11.5.0
+2026-10-29T01:36:29.0751529Z  * [new tag]         11.5.1         -> 11.5.1
+2026-10-29T01:36:29.0751795Z  * [new tag]         11.5.2         -> 11.5.2
+2026-10-29T01:36:29.0752040Z  * [new tag]         12.0           -> 12.0
+2026-10-29T01:36:29.0752288Z  * [new tag]         12.0.1         -> 12.0.1
+2026-10-29T01:36:29.0752538Z  * [new tag]         2.2            -> 2.2
+2026-10-29T01:36:29.0752794Z  * [new tag]         2.2.1          -> 2.2.1
+2026-10-29T01:36:29.0753052Z  * [new tag]         2.2.2          -> 2.2.2
+2026-10-29T01:36:29.0753294Z  * [new tag]         2.3            -> 2.3
+2026-10-29T01:36:29.0753529Z  * [new tag]         2.4            -> 2.4
+2026-10-29T01:36:29.0753768Z  * [new tag]         2.4.1          -> 2.4.1
+2026-10-29T01:36:29.0754020Z  * [new tag]         2.5            -> 2.5
+2026-10-29T01:36:29.0754251Z  * [new tag]         2.6            -> 2.6
+2026-10-29T01:36:29.0754491Z  * [new tag]         2.6.1          -> 2.6.1
+2026-10-29T01:36:29.0754925Z  * [new tag]         3.0            -> 3.0
+2026-10-29T01:36:29.0755329Z  * [new tag]         3.0.1          -> 3.0.1
+2026-10-29T01:36:29.0755655Z  * [new tag]         3.1            -> 3.1
+2026-10-29T01:36:29.0755893Z  * [new tag]         3.2            -> 3.2
+2026-10-29T01:36:29.0756300Z  * [new tag]         4.0            -> 4.0
+2026-10-29T01:36:29.0756763Z  * [new tag]         4.1            -> 4.1
+2026-10-29T01:36:29.0757037Z  * [new tag]         4.2            -> 4.2
+2026-10-29T01:36:29.0757413Z  * [new tag]         4.3            -> 4.3
+2026-10-29T01:36:29.0758347Z  * [new tag]         4.4            -> 4.4
+2026-10-29T01:36:29.0758666Z  * [new tag]         5.0            -> 5.0
+2026-10-29T01:36:29.0758933Z  * [new tag]         5.1            -> 5.1
+2026-10-29T01:36:29.0759177Z  * [new tag]         5.2            -> 5.2
+2026-10-29T01:36:29.0759416Z  * [new tag]         5.3            -> 5.3
+2026-10-29T01:36:29.0759654Z  * [new tag]         6.0            -> 6.0
+2026-10-29T01:36:29.0759892Z  * [new tag]         6.1            -> 6.1
+2026-10-29T01:36:29.0760884Z  * [new tag]         6.2            -> 6.2
+2026-10-29T01:36:29.0761203Z  * [new tag]         7.0            -> 7.0
+2026-10-29T01:36:29.0761458Z  * [new tag]         7.1            -> 7.1
+2026-10-29T01:36:29.0761709Z  * [new tag]         7.2            -> 7.2
+2026-10-29T01:36:29.0761944Z  * [new tag]         7.3            -> 7.3
+2026-10-29T01:36:29.0762176Z  * [new tag]         7.4            -> 7.4
+2026-10-29T01:36:29.0762411Z  * [new tag]         7.5            -> 7.5
+2026-10-29T01:36:29.0762650Z  * [new tag]         7.6            -> 7.6
+2026-10-29T01:36:29.0762896Z  * [new tag]         7.6.1          -> 7.6.1
+2026-10-29T01:36:29.0763149Z  * [new tag]         7.6.2          -> 7.6.2
+2026-10-29T01:36:29.0763392Z  * [new tag]         7.7            -> 7.7
+2026-10-29T01:36:29.0763628Z  * [new tag]         7.7.1          -> 7.7.1
+2026-10-29T01:36:29.0763867Z  * [new tag]         8.0            -> 8.0
+2026-10-29T01:36:29.0764107Z  * [new tag]         8.1            -> 8.1
+2026-10-29T01:36:29.0764368Z  * [new tag]         8.1.1          -> 8.1.1
+2026-10-29T01:36:29.0764892Z  * [new tag]         8.1.2          -> 8.1.2
+2026-10-29T01:36:29.0765138Z  * [new tag]         8.2            -> 8.2
+2026-10-29T01:36:29.0765368Z  * [new tag]         8.2.1          -> 8.2.1
+2026-10-29T01:36:29.0765602Z  * [new tag]         8.3            -> 8.3
+2026-10-29T01:36:29.0765829Z  * [new tag]         9.0            -> 9.0
+2026-10-29T01:36:29.0766214Z  * [new tag]         9.0.1          -> 9.0.1
+2026-10-29T01:36:29.0766547Z  * [new tag]         9.1            -> 9.1
+2026-10-29T01:36:29.0766831Z  * [new tag]         archive/spaces -> archive/spaces
+2026-10-29T01:36:29.0767136Z  * [new tag]         v12.0.2        -> v12.0.2
+2026-10-29T01:36:29.0767400Z  * [new tag]         v12.1.0        -> v12.1.0
+2026-10-29T01:36:29.0767646Z  * [new tag]         v12.2.0        -> v12.2.0
+2026-10-29T01:36:29.0767891Z  * [new tag]         v12.3.0        -> v12.3.0
+2026-10-29T01:36:29.0768138Z  * [new tag]         v12.4.0        -> v12.4.0
+2026-10-29T01:36:29.0768591Z  * [new tag]         v12.5.0        -> v12.5.0
+2026-10-29T01:36:29.0768839Z  * [new tag]         v13.0.0        -> v13.0.0
+2026-10-29T01:36:29.0769127Z  * [new tag]         v13.1.0        -> v13.1.0
+2026-10-29T01:36:29.0769584Z  * [new tag]         v13.2.0        -> v13.2.0
+2026-10-29T01:36:29.0770059Z  * [new tag]         v13.3.0        -> v13.3.0
+2026-10-29T01:36:29.0770509Z  * [new tag]         v14.0.0        -> v14.0.0
+2026-10-29T01:36:29.0770923Z  * [new tag]         v14.0.1        -> v14.0.1
+2026-10-29T01:36:29.0771355Z  * [new tag]         v15.0.0        -> v15.0.0
+2026-10-29T01:36:29.0771776Z  * [new tag]         v15.0.1        -> v15.0.1
+2026-10-29T01:36:29.0772186Z  * [new tag]         v15.1.0        -> v15.1.0
+2026-10-29T01:36:29.0772598Z  * [new tag]         v15.1.1        -> v15.1.1
+2026-10-29T01:36:29.0773010Z  * [new tag]         v15.1.2        -> v15.1.2
+2026-10-29T01:36:29.0773430Z  * [new tag]         v16.0.0        -> v16.0.0
+2026-10-29T01:36:29.0773899Z  * [new tag]         v16.1.0        -> v16.1.0
+2026-10-29T01:36:29.0774334Z  * [new tag]         v16.10.0       -> v16.10.0
+2026-10-29T01:36:29.0774769Z  * [new tag]         v16.10.1       -> v16.10.1
+2026-10-29T01:36:29.0775193Z  * [new tag]         v16.10.2       -> v16.10.2
+2026-10-29T01:36:29.0775637Z  * [new tag]         v16.11.0       -> v16.11.0
+2026-10-29T01:36:29.0776104Z  * [new tag]         v16.12.0       -> v16.12.0
+2026-10-29T01:36:29.0776546Z  * [new tag]         v16.12.1       -> v16.12.1
+2026-10-29T01:36:29.0776995Z  * [new tag]         v16.13.0       -> v16.13.0
+2026-10-29T01:36:29.0777464Z  * [new tag]         v16.14.0       -> v16.14.0
+2026-10-29T01:36:29.0777897Z  * [new tag]         v16.15.0       -> v16.15.0
+2026-10-29T01:36:29.0778361Z  * [new tag]         v16.16.0       -> v16.16.0
+2026-10-29T01:36:29.0778793Z  * [new tag]         v16.2.0        -> v16.2.0
+2026-10-29T01:36:29.0779236Z  * [new tag]         v16.3.0        -> v16.3.0
+2026-10-29T01:36:29.0779957Z  * [new tag]         v16.4.0        -> v16.4.0
+2026-10-29T01:36:29.0780423Z  * [new tag]         v16.5.0        -> v16.5.0
+2026-10-29T01:36:29.0780866Z  * [new tag]         v16.6.0        -> v16.6.0
+2026-10-29T01:36:29.0781306Z  * [new tag]         v16.7.0        -> v16.7.0
+2026-10-29T01:36:29.0781751Z  * [new tag]         v16.7.1        -> v16.7.1
+2026-10-29T01:36:29.0782220Z  * [new tag]         v16.8.0        -> v16.8.0
+2026-10-29T01:36:29.0782685Z  * [new tag]         v16.9.0        -> v16.9.0
+2026-10-29T01:36:29.0783160Z  * [new tag]         v17.0.0        -> v17.0.0
+2026-10-29T01:36:29.0783653Z  * [new tag]         v17.1.0        -> v17.1.0
+2026-10-29T01:36:29.0784110Z  * [new tag]         v17.1.1        -> v17.1.1
+2026-10-29T01:36:29.0806142Z [command]"C:\Program Files\Git\bin\git.exe" branch --list --remote origin/ci/recovery-safety-linux-windows-20261029
+2026-10-29T01:36:29.1261658Z   origin/ci/recovery-safety-linux-windows-20261029
+2026-10-29T01:36:29.1316667Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse refs/remotes/origin/ci/recovery-safety-linux-windows-20261029
+2026-10-29T01:36:29.1721736Z 0e88679bf1893fb052660f37967d8728372d8cb2
+2026-10-29T01:36:29.1764931Z ##[endgroup]
+2026-10-29T01:36:29.1765394Z ##[group]Determining the checkout info
+2026-10-29T01:36:29.1765879Z ##[endgroup]
+2026-10-29T01:36:29.1775806Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-10-29T01:36:29.2320642Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-10-29T01:36:29.2736673Z ##[group]Checking out the ref
+2026-10-29T01:36:29.2747895Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B ci/recovery-safety-linux-windows-20261029 refs/remotes/origin/ci/recovery-safety-linux-windows-20261029
+2026-10-29T01:36:29.3504706Z Switched to a new branch 'ci/recovery-safety-linux-windows-20261029'
+2026-10-29T01:36:29.3531790Z branch 'ci/recovery-safety-linux-windows-20261029' set up to track 'origin/ci/recovery-safety-linux-windows-20261029'.
+2026-10-29T01:36:29.3582115Z ##[endgroup]
+2026-10-29T01:36:29.4076599Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-10-29T01:36:29.4454214Z 0e88679bf1893fb052660f37967d8728372d8cb2
+2026-10-29T01:36:29.4503816Z ##[group]Removing auth
+2026-10-29T01:36:29.4512312Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-29T01:36:29.4917503Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-29T01:36:30.0828320Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-29T01:36:30.1208086Z http.https://github.com/.extraheader
+2026-10-29T01:36:30.1275672Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2026-10-29T01:36:30.1730527Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-29T01:36:30.7861242Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-29T01:36:30.8269131Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-29T01:36:31.4177719Z ##[endgroup]
+2026-10-29T01:36:31.4682130Z ##[group]Run actions/setup-python@v5
+2026-10-29T01:36:31.4682477Z with:
+2026-10-29T01:36:31.4682675Z   python-version: 3.13
+2026-10-29T01:36:31.4682904Z   check-latest: false
+2026-10-29T01:36:31.4685109Z   token: ***
+2026-10-29T01:36:31.4685306Z   update-environment: true
+2026-10-29T01:36:31.4685535Z   allow-prereleases: false
+2026-10-29T01:36:31.4685765Z   freethreaded: false
+2026-10-29T01:36:31.4685954Z ##[endgroup]
+2026-10-29T01:36:31.6344111Z ##[group]Installed versions
+2026-10-29T01:36:31.6505924Z (node:10040) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-29T01:36:31.6507198Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-29T01:36:31.6507895Z Successfully set up CPython (3.13.16)
+2026-10-29T01:36:31.6508620Z ##[endgroup]
+2026-10-29T01:36:31.6818367Z ##[group]Run python -m pip install tox
+2026-10-29T01:36:31.6819307Z [36;1mpython -m pip install tox[0m
+2026-10-29T01:36:31.7748517Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-29T01:36:31.7749023Z env:
+2026-10-29T01:36:31.7749330Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T01:36:31.7749874Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.13.16\x64/lib/pkgconfig
+2026-10-29T01:36:31.7750413Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T01:36:31.7751314Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T01:36:31.7751760Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T01:36:31.7752122Z ##[endgroup]
+2026-10-29T01:36:36.4552427Z Collecting tox
+2026-10-29T01:36:36.5103996Z   Downloading tox-4.67.4-py3-none-any.whl.metadata (3.7 kB)
+2026-10-29T01:36:36.5657090Z Collecting cachetools>=7.0.3 (from tox)
+2026-10-29T01:36:36.6400074Z   Downloading cachetools-7.2.7-py3-none-any.whl.metadata (5.5 kB)
+2026-10-29T01:36:36.6868796Z Collecting colorama>=0.4.6 (from tox)
+2026-10-29T01:36:36.6968514Z   Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+2026-10-29T01:36:36.7654126Z Collecting filelock>=3.25 (from tox)
+2026-10-29T01:36:36.7812407Z   Downloading filelock-4.2.4-py3-none-any.whl.metadata (2.0 kB)
+2026-10-29T01:36:36.8318117Z Collecting packaging>=26 (from tox)
+2026-10-29T01:36:36.8485556Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-10-29T01:36:36.9019217Z Collecting platformdirs>=4.9.4 (from tox)
+2026-10-29T01:36:36.9136342Z   Downloading platformdirs-4.14.0-py3-none-any.whl.metadata (5.4 kB)
+2026-10-29T01:36:36.9673907Z Collecting pluggy>=1.6 (from tox)
+2026-10-29T01:36:36.9778756Z   Downloading pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+2026-10-29T01:36:37.0315570Z Collecting pyproject-api>=1.10 (from tox)
+2026-10-29T01:36:37.0450409Z   Downloading pyproject_api-1.12.2-py3-none-any.whl.metadata (2.1 kB)
+2026-10-29T01:36:37.0913074Z Collecting python-discovery>=1.4.4 (from tox)
+2026-10-29T01:36:37.1004496Z   Downloading python_discovery-1.6.7-py3-none-any.whl.metadata (3.9 kB)
+2026-10-29T01:36:37.1422042Z Collecting tomli-w>=1.2 (from tox)
+2026-10-29T01:36:37.1533247Z   Downloading tomli_w-1.2.0-py3-none-any.whl.metadata (5.7 kB)
+2026-10-29T01:36:37.2311752Z Collecting virtualenv>=21.1 (from tox)
+2026-10-29T01:36:37.2404377Z   Downloading virtualenv-21.15.1-py3-none-any.whl.metadata (4.1 kB)
+2026-10-29T01:36:37.2985712Z Collecting distlib<1,>=0.4.3 (from virtualenv>=21.1->tox)
+2026-10-29T01:36:37.3103379Z   Downloading distlib-0.4.4-py2.py3-none-any.whl.metadata (5.3 kB)
+2026-10-29T01:36:37.3531589Z Downloading tox-4.67.4-py3-none-any.whl (239 kB)
+2026-10-29T01:36:37.3920894Z Downloading cachetools-7.2.7-py3-none-any.whl (19 kB)
+2026-10-29T01:36:37.4165421Z Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+2026-10-29T01:36:37.4451527Z Downloading filelock-4.2.4-py3-none-any.whl (162 kB)
+2026-10-29T01:36:37.4738230Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+2026-10-29T01:36:37.5125459Z Downloading platformdirs-4.14.0-py3-none-any.whl (35 kB)
+2026-10-29T01:36:37.5351442Z Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+2026-10-29T01:36:37.5588396Z Downloading pyproject_api-1.12.2-py3-none-any.whl (14 kB)
+2026-10-29T01:36:37.5847495Z Downloading python_discovery-1.6.7-py3-none-any.whl (39 kB)
+2026-10-29T01:36:37.6150196Z Downloading tomli_w-1.2.0-py3-none-any.whl (6.7 kB)
+2026-10-29T01:36:37.6455021Z Downloading virtualenv-21.15.1-py3-none-any.whl (5.6 MB)
+2026-10-29T01:36:37.7089084Z    ---------------------------------------- 5.6/5.6 MB 90.0 MB/s  0:00:00
+2026-10-29T01:36:37.7189238Z Downloading distlib-0.4.4-py2.py3-none-any.whl (472 kB)
+2026-10-29T01:36:37.9899526Z Installing collected packages: distlib, tomli-w, pluggy, platformdirs, packaging, filelock, colorama, cachetools, python-discovery, pyproject-api, virtualenv, tox
+2026-10-29T01:36:39.8266190Z 
+2026-10-29T01:36:39.8287065Z Successfully installed cachetools-7.2.7 colorama-0.4.6 distlib-0.4.4 filelock-4.2.4 packaging-26.3 platformdirs-4.14.0 pluggy-1.7.0 pyproject-api-1.12.2 python-discovery-1.6.7 tomli-w-1.2.0 tox-4.67.4 virtualenv-21.15.1
+2026-10-29T01:36:40.0677583Z ##[group]Run python -m tox -e py -- -v -rs
+2026-10-29T01:36:40.0677983Z [36;1mpython -m tox -e py -- -v -rs[0m
+2026-10-29T01:36:40.0755422Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-10-29T01:36:40.0755800Z env:
+2026-10-29T01:36:40.0756081Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T01:36:40.0756552Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.13.16\x64/lib/pkgconfig
+2026-10-29T01:36:40.0757097Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T01:36:40.0757487Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T01:36:40.0758321Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.13.16\x64
+2026-10-29T01:36:40.0758630Z ##[endgroup]
+2026-10-29T01:36:42.7146519Z .pkg: install_requires> python -I -m pip install coherent.licensed setuptools>=77 setuptools_scm[toml]>=3.4.1
+2026-10-29T01:36:46.3041843Z .pkg: _optional_hooks> python C:\hostedtoolcache\windows\Python\3.13.16\x64\Lib\site-packages\pyproject_api\_backend.py True setuptools.build_meta
+2026-10-29T01:36:46.8133165Z .pkg: get_requires_for_build_editable> python C:\hostedtoolcache\windows\Python\3.13.16\x64\Lib\site-packages\pyproject_api\_backend.py True setuptools.build_meta
+2026-10-29T01:36:47.7769259Z .pkg: freeze> python -m pip freeze --all
+2026-10-29T01:36:48.1340655Z .pkg: coherent.licensed==0.5.2,packaging==26.3,pip==26.2.2,setuptools==84.2.1,setuptools-scm==10.3.4,vcs-versioning==2.6.0
+2026-10-29T01:36:48.1352050Z .pkg: build_editable> python C:\hostedtoolcache\windows\Python\3.13.16\x64\Lib\site-packages\pyproject_api\_backend.py True setuptools.build_meta
+2026-10-29T01:36:49.1513559Z py: install_package_deps> python -I -m pip install appdirs more_itertools packaging pygments pytest!=8.1.*,>=6 pytest-checkdocs>=2.14 pytest-cov pytest-enabler>=3.4 "pytest-mypy>=1.0.1; platform_python_implementation != \"PyPy\"" "pytest-ruff>=0.2.1; sys_platform != \"cygwin\"" "pywin32; platform_system == \"Windows\" and python_version < \"3.12\"" types-pywin32
+2026-10-29T01:37:09.3786857Z py: install_package> python -I -m pip install --force-reinstall --no-deps D:\a\path\path\.tox\.tmp\package\1\path-17.1.2.dev39+g0e88679bf-0.editable-py3-none-any.whl
+2026-10-29T01:37:10.5463438Z py: freeze> python -m pip freeze --all
+2026-10-29T01:37:10.9536071Z py: alabaster==1.0.0,appdirs==1.4.4,ast_serialize==0.13.1,babel==2.18.0,build==1.6.1,certifi==2026.10.23,charset-normalizer==3.5.2,colorama==0.4.6,coverage==7.17.0,distlib==0.4.4,docutils==0.23,domdf-python-tools==3.11.0,filelock==4.2.4,idna==3.20,imagesize==2.0.1,iniconfig==2.3.1,jaraco.context==6.1.2,jaraco.functools==4.6.0,jaraco.packaging==10.4.0,Jinja2==3.1.6,librt==0.16.0,MarkupSafe==3.0.4,more-itertools==11.2.1,mypy==2.4.1,mypy_extensions==1.1.0,natsort==8.4.0,packaging==26.3,path @ file:///D:/a/path/path/.tox/.tmp/package/1/path-17.1.2.dev39%2Bg0e88679bf-0.editable-py3-none-any.whl#sha256=4d782676c9f28f70d723e307d65175dcd67712992318c37df749a487d44adea6,pathspec==1.1.1,pip==26.2.2,platformdirs==4.14.0,pluggy==1.7.0,Pygments==2.21.0,pyproject_hooks==1.3.3,pytest==9.2.0,pytest-checkdocs==2.14.0,pytest-cov==7.1.0,pytest-enabler==3.4.0,pytest-mypy==1.1.0,pytest-ruff==0.5,python-discovery==1.6.7,requests==2.34.2,roman-numerals==4.1.0,ruff==0.17.3,snowballstemmer==3.1.1,Sphinx==9.2.0,sphinxcontrib-applehelp==2.0.0,sphinxcontrib-devhelp==2.0.0,sphinxcontrib-htmlhelp==2.1.0,sphinxcontrib-jsmath==2.0.0,sphinxcontrib-qthelp==2.0.0,sphinxcontrib-serializinghtml==2.0.0,toml==0.10.2,types-pywin32==312.0.0.20261024,typing_extensions==4.16.0,urllib3==2.8.0,virtualenv==21.15.1
+2026-10-29T01:37:10.9542048Z py: commands[0]> pytest -v -rs
+2026-10-29T01:37:12.0681764Z ============================= test session starts =============================
+2026-10-29T01:37:12.0682802Z platform win32 -- Python 3.13.16, pytest-9.2.0, pluggy-1.7.0 -- D:\a\path\path\.tox\py\Scripts\python.EXE
+2026-10-29T01:37:12.0683681Z cachedir: .tox\py\.pytest_cache
+2026-10-29T01:37:12.0687243Z rootdir: D:\a\path\path
+2026-10-29T01:37:12.0687741Z configfile: pytest.ini
+2026-10-29T01:37:12.0688460Z plugins: platformdirs-4.14.0, checkdocs-2.14.0, cov-7.1.0, enabler-3.4.0, mypy-1.1.0, ruff-0.5
+2026-10-29T01:37:12.6734934Z collecting ... collected 188 items
+2026-10-29T01:37:12.6735497Z 
+2026-10-29T01:37:16.4529187Z docs/conf.py::mypy PASSED                                                [  0%]
+2026-10-29T01:37:16.5043216Z docs/conf.py::ruff PASSED                                                [  1%]
+2026-10-29T01:37:16.5044680Z docs/conf.py::ruff::format PASSED                                        [  1%]
+2026-10-29T01:37:16.5553330Z path/__init__.py::mypy PASSED                                            [  2%]
+2026-10-29T01:37:16.5554563Z path/__init__.py::ruff PASSED                                            [  2%]
+2026-10-29T01:37:16.6066615Z path/__init__.py::ruff::format PASSED                                    [  3%]
+2026-10-29T01:37:16.6067713Z path/__init__.py::path.ExtantFile PASSED                                 [  3%]
+2026-10-29T01:37:16.6069023Z path/__init__.py::path.ExtantPath PASSED                                 [  4%]
+2026-10-29T01:37:16.6069902Z path/__init__.py::path.Path.access PASSED                                [  4%]
+2026-10-29T01:37:16.6071167Z path/__init__.py::path.Path.atime PASSED                                 [  5%]
+2026-10-29T01:37:16.6071975Z path/__init__.py::path.Path.chmod PASSED                                 [  5%]
+2026-10-29T01:37:16.6575166Z path/__init__.py::path.Path.chunks PASSED                                [  6%]
+2026-10-29T01:37:16.6580737Z path/__init__.py::path.Path.isabs PASSED                                 [  6%]
+2026-10-29T01:37:16.6582012Z path/__init__.py::path.Path.ismount PASSED                               [  7%]
+2026-10-29T01:37:16.6582848Z path/__init__.py::path.Path.lstat PASSED                                 [  7%]
+2026-10-29T01:37:16.6583548Z path/__init__.py::path.Path.mtime PASSED                                 [  8%]
+2026-10-29T01:37:16.6584029Z path/__init__.py::path.Path.parts PASSED                                 [  9%]
+2026-10-29T01:37:16.6584498Z path/__init__.py::path.Path.permissions PASSED                           [  9%]
+2026-10-29T01:37:16.6584968Z path/__init__.py::path.Path.replace PASSED                               [ 10%]
+2026-10-29T01:37:16.6585423Z path/__init__.py::path.Path.splitall PASSED                              [ 10%]
+2026-10-29T01:37:16.6585867Z path/__init__.py::path.Path.stat PASSED                                  [ 11%]
+2026-10-29T01:37:16.6586297Z path/__init__.py::path.Path.stem PASSED                                  [ 11%]
+2026-10-29T01:37:16.6586724Z path/__init__.py::path.Path.with_name PASSED                             [ 12%]
+2026-10-29T01:37:16.6587150Z path/__init__.py::path.Path.with_stem PASSED                             [ 12%]
+2026-10-29T01:37:16.6587575Z path/__init__.py::path.Path.with_suffix PASSED                           [ 13%]
+2026-10-29T01:37:16.6588007Z path/__init__.py::path.TempDir PASSED                                    [ 13%]
+2026-10-29T01:37:16.6588436Z path/__init__.py::path.Traversal PASSED                                  [ 14%]
+2026-10-29T01:37:16.6588874Z path/__init__.py::path._strip_newlines PASSED                            [ 14%]
+2026-10-29T01:37:16.7092429Z path/classes.py::mypy PASSED                                             [ 15%]
+2026-10-29T01:37:16.7094013Z path/classes.py::ruff PASSED                                             [ 15%]
+2026-10-29T01:37:16.7601381Z path/classes.py::ruff::format PASSED                                     [ 16%]
+2026-10-29T01:37:16.7602404Z path/masks.py::mypy PASSED                                               [ 17%]
+2026-10-29T01:37:16.7602914Z path/masks.py::ruff PASSED                                               [ 17%]
+2026-10-29T01:37:16.8114000Z path/masks.py::ruff::format PASSED                                       [ 18%]
+2026-10-29T01:37:16.8116455Z path/masks.py::path.masks.Permissions PASSED                             [ 18%]
+2026-10-29T01:37:16.8117499Z path/masks.py::path.masks.compound PASSED                                [ 19%]
+2026-10-29T01:37:16.8118834Z path/masks.py::path.masks.gen_bit_values PASSED                          [ 19%]
+2026-10-29T01:37:16.8119965Z path/masks.py::path.masks.padded PASSED                                  [ 20%]
+2026-10-29T01:37:16.8120735Z path/masks.py::path.masks.simple PASSED                                  [ 20%]
+2026-10-29T01:37:16.8121235Z path/matchers.py::mypy PASSED                                            [ 21%]
+2026-10-29T01:37:16.8625835Z path/matchers.py::ruff PASSED                                            [ 21%]
+2026-10-29T01:37:16.8631105Z path/matchers.py::ruff::format PASSED                                    [ 22%]
+2026-10-29T01:37:22.4566962Z .::project PASSED                                                        [ 22%]
+2026-10-29T01:37:22.4567918Z tests/conftest.py::mypy PASSED                                           [ 23%]
+2026-10-29T01:37:22.4568728Z tests/conftest.py::ruff PASSED                                           [ 23%]
+2026-10-29T01:37:22.5082372Z tests/conftest.py::ruff::format PASSED                                   [ 24%]
+2026-10-29T01:37:22.5084094Z tests/test_path.py::mypy PASSED                                          [ 25%]
+2026-10-29T01:37:22.5084916Z tests/test_path.py::ruff PASSED                                          [ 25%]
+2026-10-29T01:37:22.5597478Z tests/test_path.py::ruff::format PASSED                                  [ 26%]
+2026-10-29T01:37:22.5598560Z tests/test_path.py::TestBasics::test_relpath PASSED                      [ 26%]
+2026-10-29T01:37:22.5599538Z tests/test_path.py::TestBasics::test_construction_without_args PASSED    [ 27%]
+2026-10-29T01:37:22.5601993Z tests/test_path.py::TestBasics::test_construction_from_none PASSED       [ 27%]
+2026-10-29T01:37:22.5603008Z tests/test_path.py::TestBasics::test_construction_from_int PASSED        [ 28%]
+2026-10-29T01:37:22.5605019Z tests/test_path.py::TestBasics::test_string_compatibility PASSED         [ 28%]
+2026-10-29T01:37:22.5606030Z tests/test_path.py::TestBasics::test_properties PASSED                   [ 29%]
+2026-10-29T01:37:22.5607386Z tests/test_path.py::TestBasics::test_absolute PASSED                     [ 29%]
+2026-10-29T01:37:22.5608260Z tests/test_path.py::TestBasics::test_cwd PASSED                          [ 30%]
+2026-10-29T01:37:22.5609089Z tests/test_path.py::TestBasics::test_home PASSED                         [ 30%]
+2026-10-29T01:37:22.5609996Z tests/test_path.py::TestBasics::test_explicit_module PASSED              [ 31%]
+2026-10-29T01:37:22.5611136Z tests/test_path.py::TestBasics::test_explicit_module_classes PASSED      [ 31%]
+2026-10-29T01:37:22.5612761Z tests/test_path.py::TestBasics::test_joinpath_on_instance PASSED         [ 32%]
+2026-10-29T01:37:22.5613655Z tests/test_path.py::TestBasics::test_joinpath_to_nothing PASSED          [ 32%]
+2026-10-29T01:37:22.5614572Z tests/test_path.py::TestBasics::test_joinpath_on_class PASSED            [ 33%]
+2026-10-29T01:37:22.6108855Z tests/test_path.py::TestBasics::test_joinpath_fails_on_empty PASSED      [ 34%]
+2026-10-29T01:37:22.6110244Z tests/test_path.py::TestBasics::test_joinpath_returns_same_type PASSED   [ 34%]
+2026-10-29T01:37:22.6110826Z tests/test_path.py::TestBasics::test_radd_string PASSED                  [ 35%]
+2026-10-29T01:37:22.6111313Z tests/test_path.py::TestBasics::test_fspath PASSED                       [ 35%]
+2026-10-29T01:37:22.6111783Z tests/test_path.py::TestBasics::test_normpath PASSED                     [ 36%]
+2026-10-29T01:37:22.6112246Z tests/test_path.py::TestBasics::test_expandvars PASSED                   [ 36%]
+2026-10-29T01:37:22.6112704Z tests/test_path.py::TestBasics::test_expand PASSED                       [ 37%]
+2026-10-29T01:37:22.6113173Z tests/test_path.py::TestBasics::test_splitdrive PASSED                   [ 37%]
+2026-10-29T01:37:22.6114160Z tests/test_path.py::TestBasics::test_relpathto PASSED                    [ 38%]
+2026-10-29T01:37:22.6114651Z tests/test_path.py::TestBasics::test_walk_errors PASSED                  [ 38%]
+2026-10-29T01:37:22.6115108Z tests/test_path.py::TestBasics::test_walk_child_error PASSED             [ 39%]
+2026-10-29T01:37:22.6115575Z tests/test_path.py::TestBasics::test_read_md5 PASSED                     [ 39%]
+2026-10-29T01:37:22.6116035Z tests/test_path.py::TestBasics::test_read_hexhash PASSED                 [ 40%]
+2026-10-29T01:37:22.6116490Z tests/test_path.py::TestBasics::test_statvfs SKIPPED (condition: not...) [ 40%]
+2026-10-29T01:37:22.6116955Z tests/test_path.py::TestBasics::test_pathconf SKIPPED (condition: no...) [ 41%]
+2026-10-29T01:37:22.6117412Z tests/test_path.py::TestBasics::test_utime PASSED                        [ 42%]
+2026-10-29T01:37:22.6117859Z tests/test_path.py::TestBasics::test_chmod_str PASSED                    [ 42%]
+2026-10-29T01:37:22.6118315Z tests/test_path.py::TestBasics::test_chown SKIPPED (condition: not h...) [ 43%]
+2026-10-29T01:37:22.6118773Z tests/test_path.py::TestBasics::test_renames PASSED                      [ 43%]
+2026-10-29T01:37:22.6616126Z tests/test_path.py::TestBasics::test_mkdir_p PASSED                      [ 44%]
+2026-10-29T01:37:22.6621020Z tests/test_path.py::TestBasics::test_removedirs_p PASSED                 [ 44%]
+2026-10-29T01:37:22.6622000Z tests/test_path.py::TestBasics::test_group SKIPPED (condition: not h...) [ 45%]
+2026-10-29T01:37:22.6622826Z tests/test_path.py::TestReadWriteText::test_read_write PASSED            [ 45%]
+2026-10-29T01:37:22.8143479Z tests/test_path.py::TestPerformance::test_import_time PASSED             [ 46%]
+2026-10-29T01:37:22.8144793Z tests/test_path.py::TestOwnership::test_get_owner SKIPPED (condition...) [ 46%]
+2026-10-29T01:37:22.8145596Z tests/test_path.py::TestLinks::test_hardlink_to PASSED                   [ 47%]
+2026-10-29T01:37:22.8146097Z tests/test_path.py::TestLinks::test_link PASSED                          [ 47%]
+2026-10-29T01:37:22.8146613Z tests/test_path.py::TestLinks::test_symlink_to PASSED                    [ 48%]
+2026-10-29T01:37:22.8147106Z tests/test_path.py::TestLinks::test_symlink_none PASSED                  [ 48%]
+2026-10-29T01:37:22.8147591Z tests/test_path.py::TestLinks::test_readlinkabs_passthrough PASSED       [ 49%]
+2026-10-29T01:37:22.8148329Z tests/test_path.py::TestLinks::test_readlinkabs_rendered PASSED          [ 50%]
+2026-10-29T01:37:22.8148842Z tests/test_path.py::TestSymbolicLinksWalk::test_skip_symlinks PASSED     [ 50%]
+2026-10-29T01:37:22.8149459Z tests/test_path.py::TestSelfReturn::test_makedirs_p PASSED               [ 51%]
+2026-10-29T01:37:22.8150172Z tests/test_path.py::TestSelfReturn::test_makedirs_p_extant PASSED        [ 51%]
+2026-10-29T01:37:22.8659705Z tests/test_path.py::TestSelfReturn::test_rename PASSED                   [ 52%]
+2026-10-29T01:37:22.8661001Z tests/test_path.py::TestSelfReturn::test_mkdir PASSED                    [ 52%]
+2026-10-29T01:37:22.8661803Z tests/test_path.py::TestSelfReturn::test_touch PASSED                    [ 53%]
+2026-10-29T01:37:22.8662324Z tests/test_path.py::test_chroot SKIPPED (condition: not hasattr(Path...) [ 53%]
+2026-10-29T01:37:22.8662827Z tests/test_path.py::test_startfile PASSED                                [ 54%]
+2026-10-29T01:37:22.8663346Z tests/test_path.py::TestScratchDir::test_context_manager PASSED          [ 54%]
+2026-10-29T01:37:26.8527740Z tests/test_path.py::TestScratchDir::test_touch PASSED                    [ 55%]
+2026-10-29T01:37:26.9042018Z tests/test_path.py::TestScratchDir::test_listing PASSED                  [ 55%]
+2026-10-29T01:37:26.9043319Z tests/test_path.py::TestScratchDir::test_iterdir_other_encoding SKIPPED  [ 56%]
+2026-10-29T01:37:26.9044308Z tests/test_path.py::TestScratchDir::test_makedirs PASSED                 [ 56%]
+2026-10-29T01:37:26.9045234Z tests/test_path.py::TestScratchDir::test_shutil PASSED                   [ 57%]
+2026-10-29T01:37:26.9557038Z tests/test_path.py::TestScratchDir::test_patterns PASSED                 [ 57%]
+2026-10-29T01:37:26.9558472Z tests/test_path.py::TestScratchDir::test_unicode[UTF-8] PASSED           [ 58%]
+2026-10-29T01:37:26.9559706Z tests/test_path.py::TestScratchDir::test_unicode[UTF-16BE] PASSED        [ 59%]
+2026-10-29T01:37:26.9560736Z tests/test_path.py::TestScratchDir::test_unicode[UTF-16LE] PASSED        [ 59%]
+2026-10-29T01:37:26.9561602Z tests/test_path.py::TestScratchDir::test_unicode[UTF-16] PASSED          [ 60%]
+2026-10-29T01:37:27.0071809Z tests/test_path.py::TestScratchDir::test_chunks PASSED                   [ 60%]
+2026-10-29T01:37:27.0072924Z tests/test_path.py::TestScratchDir::test_samefile PASSED                 [ 61%]
+2026-10-29T01:37:27.0073615Z tests/test_path.py::TestScratchDir::test_rmtree_p PASSED                 [ 61%]
+2026-10-29T01:37:27.0074137Z tests/test_path.py::TestScratchDir::test_rmtree_p_nonexistent PASSED     [ 62%]
+2026-10-29T01:37:27.0074624Z tests/test_path.py::TestScratchDir::test_rmdir_p_exists PASSED           [ 62%]
+2026-10-29T01:37:27.0075127Z tests/test_path.py::TestScratchDir::test_rmdir_p_nonexistent PASSED      [ 63%]
+2026-10-29T01:37:27.0075621Z tests/test_path.py::TestScratchDir::test_rmdir_p_sub_sub_dir PASSED      [ 63%]
+2026-10-29T01:37:27.0076445Z tests/test_path.py::TestMergeTree::test_with_nonexisting_dst_kwargs PASSED [ 64%]
+2026-10-29T01:37:27.0076942Z tests/test_path.py::TestMergeTree::test_with_nonexisting_dst_args PASSED [ 64%]
+2026-10-29T01:37:27.0588746Z tests/test_path.py::TestMergeTree::test_with_existing_dst PASSED         [ 65%]
+2026-10-29T01:37:27.0590120Z tests/test_path.py::TestMergeTree::test_copytree_parameters PASSED       [ 65%]
+2026-10-29T01:37:27.0591175Z tests/test_path.py::TestMergeTree::test_only_newer PASSED                [ 66%]
+2026-10-29T01:37:27.0592129Z tests/test_path.py::TestMergeTree::test_nested PASSED                    [ 67%]
+2026-10-29T01:37:27.0593024Z tests/test_path.py::TestChdir::test_chdir_or_cd PASSED                   [ 67%]
+2026-10-29T01:37:27.0593989Z tests/test_path.py::TestSubclass::test_subclass_produces_same_class PASSED [ 68%]
+2026-10-29T01:37:27.0594921Z tests/test_path.py::TestTempDir::test_constructor PASSED                 [ 68%]
+2026-10-29T01:37:27.0595785Z tests/test_path.py::TestTempDir::test_next_class PASSED                  [ 69%]
+2026-10-29T01:37:27.0596658Z tests/test_path.py::TestTempDir::test_context_manager PASSED             [ 69%]
+2026-10-29T01:37:27.0597485Z tests/test_path.py::TestTempDir::test_context_manager_using_with PASSED  [ 70%]
+2026-10-29T01:37:27.0598363Z tests/test_path.py::TestTempDir::test_cleaned_up_on_interrupt PASSED     [ 70%]
+2026-10-29T01:37:27.0599277Z tests/test_path.py::TestTempDir::test_constructor_dir_argument PASSED    [ 71%]
+2026-10-29T01:37:27.1101637Z tests/test_path.py::TestTempDir::test_constructor_prefix_argument PASSED [ 71%]
+2026-10-29T01:37:27.1102770Z tests/test_path.py::TestTempDir::test_constructor_suffix_argument PASSED [ 72%]
+2026-10-29T01:37:27.1103766Z tests/test_path.py::TestUnicode::test_walkdirs_with_unicode_name PASSED  [ 72%]
+2026-10-29T01:37:27.1104724Z tests/test_path.py::TestPatternMatching::test_fnmatch_simple PASSED      [ 73%]
+2026-10-29T01:37:27.1105564Z tests/test_path.py::TestPatternMatching::test_fnmatch_custom_mod PASSED  [ 73%]
+2026-10-29T01:37:27.1106520Z tests/test_path.py::TestPatternMatching::test_fnmatch_custom_normcase PASSED [ 74%]
+2026-10-29T01:37:27.1107504Z tests/test_path.py::TestPatternMatching::test_iterdir_simple PASSED      [ 75%]
+2026-10-29T01:37:27.1108457Z tests/test_path.py::TestPatternMatching::test_iterdir_empty_pattern PASSED [ 75%]
+2026-10-29T01:37:27.1109400Z tests/test_path.py::TestPatternMatching::test_iterdir_patterns PASSED    [ 76%]
+2026-10-29T01:37:27.1110367Z tests/test_path.py::TestPatternMatching::test_iterdir_custom_module PASSED [ 76%]
+2026-10-29T01:37:27.1111380Z tests/test_path.py::TestPatternMatching::test_iterdir_case_insensitive PASSED [ 77%]
+2026-10-29T01:37:27.1112728Z tests/test_path.py::TestPatternMatching::test_walk_case_insensitive PASSED [ 77%]
+2026-10-29T01:37:27.1114862Z tests/test_path.py::TestInPlace::test_line_by_line_rewrite PASSED        [ 78%]
+2026-10-29T01:37:27.1617015Z tests/test_path.py::TestInPlace::test_exception_in_context PASSED        [ 78%]
+2026-10-29T01:37:27.1618670Z tests/test_path.py::TestInPlace::test_reader_setup_failure_restores_file[options0-LookupError] PASSED [ 79%]
+2026-10-29T01:37:27.1619999Z tests/test_path.py::TestInPlace::test_reader_setup_failure_restores_file[options1-ValueError] PASSED [ 79%]
+2026-10-29T01:37:27.1621170Z tests/test_path.py::TestInPlace::test_writer_setup_failure_restores_file PASSED [ 80%]
+2026-10-29T01:37:27.1622205Z tests/test_path.py::TestInPlace::test_writer_wrapping_failure_closes_resources PASSED [ 80%]
+2026-10-29T01:37:27.1623417Z tests/test_path.py::TestInPlace::test_base_exception_restores_file[reader-KeyboardInterrupt] PASSED [ 81%]
+2026-10-29T01:37:27.1624682Z tests/test_path.py::TestInPlace::test_base_exception_restores_file[reader-SystemExit] PASSED [ 81%]
+2026-10-29T01:37:27.1625930Z tests/test_path.py::TestInPlace::test_base_exception_restores_file[writer-KeyboardInterrupt] PASSED [ 82%]
+2026-10-29T01:37:27.1627140Z tests/test_path.py::TestInPlace::test_base_exception_restores_file[writer-SystemExit] PASSED [ 82%]
+2026-10-29T01:37:27.2131267Z tests/test_path.py::TestInPlace::test_base_exception_restores_file[body-KeyboardInterrupt] PASSED [ 83%]
+2026-10-29T01:37:27.2133369Z tests/test_path.py::TestInPlace::test_base_exception_restores_file[body-SystemExit] PASSED [ 84%]
+2026-10-29T01:37:27.2134468Z tests/test_path.py::TestInPlace::test_failed_restore_retains_backup[setup] PASSED [ 84%]
+2026-10-29T01:37:27.2135463Z tests/test_path.py::TestInPlace::test_failed_restore_retains_backup[body] PASSED [ 85%]
+2026-10-29T01:37:27.2136620Z tests/test_path.py::TestInPlace::test_interrupted_writer_setup_closes_resources[KeyboardInterrupt] PASSED [ 85%]
+2026-10-29T01:37:27.2137875Z tests/test_path.py::TestInPlace::test_interrupted_writer_setup_closes_resources[SystemExit] PASSED [ 86%]
+2026-10-29T01:37:27.2138985Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[None-r] PASSED [ 86%]
+2026-10-29T01:37:27.2139985Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[None-rb] PASSED [ 87%]
+2026-10-29T01:37:27.2645587Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[RuntimeError-r] PASSED [ 87%]
+2026-10-29T01:37:27.2647100Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[RuntimeError-rb] PASSED [ 88%]
+2026-10-29T01:37:27.2648287Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[KeyboardInterrupt-r] PASSED [ 88%]
+2026-10-29T01:37:27.2649165Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[KeyboardInterrupt-rb] PASSED [ 89%]
+2026-10-29T01:37:27.2649849Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[SystemExit-r] PASSED [ 89%]
+2026-10-29T01:37:27.2650504Z tests/test_path.py::TestInPlace::test_context_exit_closes_resources[SystemExit-rb] PASSED [ 90%]
+2026-10-29T01:37:27.2651189Z tests/test_path.py::TestInPlace::test_failed_rollback_unlink_retains_original_backup PASSED [ 90%]
+2026-10-29T01:37:27.2651797Z tests/test_path.py::TestInPlace::test_write_mode_invalid PASSED          [ 91%]
+2026-10-29T01:37:27.3159434Z tests/test_path.py::TestSpecialPaths::test_basic_paths PASSED            [ 92%]
+2026-10-29T01:37:27.3160540Z tests/test_path.py::TestSpecialPaths::test_unix_paths PASSED             [ 92%]
+2026-10-29T01:37:27.3161496Z tests/test_path.py::TestSpecialPaths::test_unix_paths_fallback PASSED    [ 93%]
+2026-10-29T01:37:27.3162423Z tests/test_path.py::TestSpecialPaths::test_property PASSED               [ 93%]
+2026-10-29T01:37:27.3163343Z tests/test_path.py::TestSpecialPaths::test_other_parameters PASSED       [ 94%]
+2026-10-29T01:37:27.3164241Z tests/test_path.py::TestSpecialPaths::test_multipath PASSED              [ 94%]
+2026-10-29T01:37:27.3165174Z tests/test_path.py::TestSpecialPaths::test_reused_SpecialResolver PASSED [ 95%]
+2026-10-29T01:37:27.3166493Z tests/test_path.py::TestMultiPath::test_for_class PASSED                 [ 95%]
+2026-10-29T01:37:27.3167853Z tests/test_path.py::TestMultiPath::test_detect_no_pathsep PASSED         [ 96%]
+2026-10-29T01:37:27.3168800Z tests/test_path.py::TestMultiPath::test_detect_with_pathsep PASSED       [ 96%]
+2026-10-29T01:37:27.3169684Z tests/test_path.py::TestMultiPath::test_iteration PASSED                 [ 97%]
+2026-10-29T01:37:27.4174770Z tests/test_path.py::test_no_dependencies PASSED                          [ 97%]
+2026-10-29T01:37:27.4175720Z tests/test_path.py::TestHandlers::test_raise PASSED                      [ 98%]
+2026-10-29T01:37:27.4176574Z tests/test_path.py::TestHandlers::test_warn PASSED                       [ 98%]
+2026-10-29T01:37:27.4177419Z tests/test_path.py::TestHandlers::test_ignore PASSED                     [ 99%]
+2026-10-29T01:37:28.4769259Z tests/test_path.py::TestHandlers::test_invalid_handler PASSED            [100%]
+2026-10-29T01:37:28.4770171Z ==================================== mypy =====================================
+2026-10-29T01:37:28.4770542Z 
+2026-10-29T01:37:28.4770709Z Success: no issues found in 7 source files
+2026-10-29T01:37:28.4771273Z =============================== tests coverage ================================
+2026-10-29T01:37:28.4772664Z ______________ coverage: platform win32, python 3.13.16-final-0 _______________
+2026-10-29T01:37:28.4773117Z 
+2026-10-29T01:37:28.4773276Z Name                 Stmts   Miss  Cover   Missing
+2026-10-29T01:37:28.4773754Z --------------------------------------------------
+2026-10-29T01:37:28.4774192Z docs\conf.py            17      0   100%
+2026-10-29T01:37:28.4774726Z path\__init__.py       605     14    98%   1227, 1299-1313, 1503, 1512, 1538-1540, 1571, 2023
+2026-10-29T01:37:28.4775241Z path\classes.py         15      0   100%
+2026-10-29T01:37:28.4775730Z path\masks.py           56      2    96%   54, 56
+2026-10-29T01:37:28.4776054Z path\matchers.py        30      0   100%
+2026-10-29T01:37:28.4776344Z tests\conftest.py        6      1    83%   13
+2026-10-29T01:37:28.4776830Z tests\test_path.py     999     23    98%   259, 263, 280-286, 309-310, 347, 444-447, 519, 577, 580, 1239, 1251, 1269, 1341, 1415
+2026-10-29T01:37:28.4777339Z --------------------------------------------------
+2026-10-29T01:37:28.4777620Z TOTAL                 1728     40    98%
+2026-10-29T01:37:28.4777925Z =========================== short test summary info ===========================
+2026-10-29T01:37:28.4778354Z SKIPPED [1] tests\test_path.py:257: condition: not hasattr(os, 'statvfs')
+2026-10-29T01:37:28.4778815Z SKIPPED [1] tests\test_path.py:261: condition: not hasattr(os, 'pathconf')
+2026-10-29T01:37:28.4779249Z SKIPPED [1] tests\test_path.py:278: condition: not hasattr(Path, 'chown')
+2026-10-29T01:37:28.4779672Z SKIPPED [1] tests\test_path.py:307: condition: not hasattr(Path, 'group')
+2026-10-29T01:37:28.4780233Z SKIPPED [1] tests\test_path.py:345: condition: platform.system() == "Windows" and sys.version_info > (3, 12)
+2026-10-29T01:37:28.4780800Z SKIPPED [1] tests\test_path.py:442: condition: not hasattr(Path, 'chroot')
+2026-10-29T01:37:28.4781733Z SKIPPED [1] tests\test_path.py:582: Invalid encodings disallowed [Errno 2] No such file or directory: b'C:\\Users\\runneradmin\\AppData\\Local\\Temp\\pytest-of-unknown\\pytest-0\\test_iterdir_other_encoding0\\r\\xe9\\xf1emi'
+2026-10-29T01:37:28.4782626Z ======================= 181 passed, 7 skipped in 15.64s =======================
+2026-10-29T01:37:29.9678868Z   py: OK (48.86=setup[29.85]+cmd[19.01] seconds)
+2026-10-29T01:37:29.9679255Z   congratulations :) (48.99 seconds)
+2026-10-29T01:37:30.1369730Z Post job cleanup.
+2026-10-29T01:37:30.3000948Z (node:9588) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-29T01:37:30.3002204Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-29T01:37:30.3355390Z Post job cleanup.
+2026-10-29T01:37:30.5445657Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-10-29T01:37:30.5853477Z git version 2.56.0.windows.2
+2026-10-29T01:37:30.5948216Z Temporarily overriding HOME='D:\a\_temp\a723b0ee-5235-4670-a59a-a75b8caf84b5' before making global git config changes
+2026-10-29T01:37:30.5949647Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-29T01:37:30.5964910Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\path\path
+2026-10-29T01:37:30.6432693Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-10-29T01:37:30.6927466Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-10-29T01:37:31.3624256Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-29T01:37:31.4104559Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-10-29T01:37:32.0311550Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-29T01:37:32.0736639Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-10-29T01:37:32.7092770Z Cleaning up orphan processes
+2026-10-29T01:37:32.7206834Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

@@ -1,0 +1,26 @@
+{
+  "path/__init__.py": {
+    "sha256": "574854d46b157cebe2123ade62ceb181ef7fc104d808d5d69c7848a964c17cae",
+    "matches_safety_commit": "b60ed5467ba21d751c5b97541b58aab8f0ac8938",
+    "tested_ci_commits_identical": {
+      "aed5f362447c9c7b24017355a1005d0f221f938a": true,
+      "0e88679bf1893fb052660f37967d8728372d8cb2": true
+    }
+  },
+  "tests/test_path.py": {
+    "sha256": "763774e1f0166cca300e0ad60dd6c38ce437bcce71a6d80ada57a7d00b3bd7fa",
+    "matches_safety_commit": "b60ed5467ba21d751c5b97541b58aab8f0ac8938",
+    "tested_ci_commits_identical": {
+      "aed5f362447c9c7b24017355a1005d0f221f938a": true,
+      "0e88679bf1893fb052660f37967d8728372d8cb2": true
+    }
+  },
+  "newsfragments/+inplace-setup.bugfix.rst": {
+    "sha256": "9e3d320265a0bc2f41ecdb02ecd53cac90eb43c8cd29e8b7181e6e0cc133158e",
+    "matches_safety_commit": "b60ed5467ba21d751c5b97541b58aab8f0ac8938",
+    "tested_ci_commits_identical": {
+      "aed5f362447c9c7b24017355a1005d0f221f938a": true,
+      "0e88679bf1893fb052660f37967d8728372d8cb2": true
+    }
+  }
+}
