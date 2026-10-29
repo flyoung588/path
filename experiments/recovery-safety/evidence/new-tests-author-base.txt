@@ -1,0 +1,336 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.11.12, pytest-9.2.0, pluggy-1.7.0 -- /Users/feiyang/.codex/.chatgpt-projects/g-p-6a8bc3896c108191b1914e9af9ac0262/co-do-round6/track-d/venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/feiyang/.codex/.chatgpt-projects/g-p-6a8bc3896c108191b1914e9af9ac0262/co-do-round7/track-d/path
+configfile: pytest.ini
+plugins: platformdirs-4.14.0
+collecting ... collected 139 items / 128 deselected / 11 selected
+
+tests/test_path.py::TestInPlace::test_interrupted_writer_setup_closes_resources[KeyboardInterrupt] FAILED [  9%]
+tests/test_path.py::TestInPlace::test_interrupted_writer_setup_closes_resources[SystemExit] FAILED [ 18%]
+tests/test_path.py::TestInPlace::test_context_exit_closes_resources[None-r] PASSED [ 27%]
+tests/test_path.py::TestInPlace::test_context_exit_closes_resources[None-rb] PASSED [ 36%]
+tests/test_path.py::TestInPlace::test_context_exit_closes_resources[RuntimeError-r] PASSED [ 45%]
+tests/test_path.py::TestInPlace::test_context_exit_closes_resources[RuntimeError-rb] PASSED [ 54%]
+tests/test_path.py::TestInPlace::test_context_exit_closes_resources[KeyboardInterrupt-r] FAILED [ 63%]
+tests/test_path.py::TestInPlace::test_context_exit_closes_resources[KeyboardInterrupt-rb] FAILED [ 72%]
+tests/test_path.py::TestInPlace::test_context_exit_closes_resources[SystemExit-r] FAILED [ 81%]
+tests/test_path.py::TestInPlace::test_context_exit_closes_resources[SystemExit-rb] FAILED [ 90%]
+tests/test_path.py::TestInPlace::test_failed_rollback_unlink_retains_original_backup FAILED [100%]
+
+=================================== FAILURES ===================================
+_ TestInPlace.test_interrupted_writer_setup_closes_resources[KeyboardInterrupt] _
+
+self = <tests.test_path.TestInPlace object at 0x106ed7c50>
+tmpdir = local('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-21/test_interrupted_writer_setup_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1066e8550>
+error = <class 'KeyboardInterrupt'>
+
+    @pytest.mark.parametrize('error', [KeyboardInterrupt, SystemExit])
+    def test_interrupted_writer_setup_closes_resources(
+        self, tmpdir, monkeypatch, error
+    ):
+        doc = self.create_reference(tmpdir)
+        interruption = error('writer setup interrupted')
+        original_open = open
+        opened = []
+    
+        def interrupt_writer(file, *args, **kwargs):
+            if isinstance(file, int):
+                opened.append(file)
+                raise interruption
+            reader = original_open(file, *args, **kwargs)  # noqa: SIM115 - ExitStack owns reader
+            opened.append(reader)
+            return reader
+    
+        with monkeypatch.context() as patched:
+            patched.setattr(path, 'open', interrupt_writer, raising=False)
+            with pytest.raises(error) as exc, doc.in_place(encoding='utf-8'):
+                pytest.fail('setup must fail before yielding')
+        assert exc.value is interruption
+        reader, fd = opened
+        assert reader.closed
+        with pytest.raises(OSError):
+            os.fstat(fd)
+>       assert doc.read_text(encoding='utf-8') == self.reference_content
+E       AssertionError: assert '' == 'The quick br...e lazy dog.\n'
+E         
+E         - The quick brown fox jumped over the lazy dog.
+
+tests/test_path.py:1347: AssertionError
+____ TestInPlace.test_interrupted_writer_setup_closes_resources[SystemExit] ____
+
+self = <tests.test_path.TestInPlace object at 0x106ed7ed0>
+tmpdir = local('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-21/test_interrupted_writer_setup_1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x106e866d0>
+error = <class 'SystemExit'>
+
+    @pytest.mark.parametrize('error', [KeyboardInterrupt, SystemExit])
+    def test_interrupted_writer_setup_closes_resources(
+        self, tmpdir, monkeypatch, error
+    ):
+        doc = self.create_reference(tmpdir)
+        interruption = error('writer setup interrupted')
+        original_open = open
+        opened = []
+    
+        def interrupt_writer(file, *args, **kwargs):
+            if isinstance(file, int):
+                opened.append(file)
+                raise interruption
+            reader = original_open(file, *args, **kwargs)  # noqa: SIM115 - ExitStack owns reader
+            opened.append(reader)
+            return reader
+    
+        with monkeypatch.context() as patched:
+            patched.setattr(path, 'open', interrupt_writer, raising=False)
+            with pytest.raises(error) as exc, doc.in_place(encoding='utf-8'):
+                pytest.fail('setup must fail before yielding')
+        assert exc.value is interruption
+        reader, fd = opened
+        assert reader.closed
+        with pytest.raises(OSError):
+            os.fstat(fd)
+>       assert doc.read_text(encoding='utf-8') == self.reference_content
+E       AssertionError: assert '' == 'The quick br...e lazy dog.\n'
+E         
+E         - The quick brown fox jumped over the lazy dog.
+
+tests/test_path.py:1347: AssertionError
+_____ TestInPlace.test_context_exit_closes_resources[KeyboardInterrupt-r] ______
+
+self = <tests.test_path.TestInPlace object at 0x106e85390>
+tmpdir = local('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-21/test_context_exit_closes_resou4')
+mode = 'r', error = <class 'KeyboardInterrupt'>
+
+    @pytest.mark.parametrize('mode', ['r', 'rb'])
+    @pytest.mark.parametrize(
+        'error', [None, RuntimeError, KeyboardInterrupt, SystemExit]
+    )
+    def test_context_exit_closes_resources(self, tmpdir, mode, error):
+        doc = self.create_reference(tmpdir)
+        doc.chmod(0o640)
+        permissions = stat.S_IMODE(doc.stat().st_mode)
+        failure = error('body failed') if error else None
+        expected_exception = pytest.raises(error) if error else contextlib.nullcontext()
+        replacement = b'replacement' if 'b' in mode else 'replacement'
+        options = {} if 'b' in mode else {'encoding': 'utf-8'}
+        with (
+            expected_exception as exc,
+            doc.in_place(mode=mode, backup_extension='.original', **options) as (
+                reader,
+                writer,
+            ),
+        ):
+            descriptors = [reader.fileno(), writer.fileno()]
+            writer.write(replacement)
+            if failure:
+                raise failure
+        if failure:
+            assert exc.value is failure
+        assert reader.closed
+        assert writer.closed
+        for fd in descriptors:
+            with pytest.raises(OSError):
+                os.fstat(fd)
+        expected = self.reference_content if error else 'replacement'
+>       assert doc.read_text(encoding='utf-8') == expected
+E       AssertionError: assert 'replacement' == 'The quick br...e lazy dog.\n'
+E         
+E         - The quick brown fox jumped over the lazy dog.
+E         + replacement
+
+tests/test_path.py:1381: AssertionError
+_____ TestInPlace.test_context_exit_closes_resources[KeyboardInterrupt-rb] _____
+
+self = <tests.test_path.TestInPlace object at 0x106e85510>
+tmpdir = local('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-21/test_context_exit_closes_resou5')
+mode = 'rb', error = <class 'KeyboardInterrupt'>
+
+    @pytest.mark.parametrize('mode', ['r', 'rb'])
+    @pytest.mark.parametrize(
+        'error', [None, RuntimeError, KeyboardInterrupt, SystemExit]
+    )
+    def test_context_exit_closes_resources(self, tmpdir, mode, error):
+        doc = self.create_reference(tmpdir)
+        doc.chmod(0o640)
+        permissions = stat.S_IMODE(doc.stat().st_mode)
+        failure = error('body failed') if error else None
+        expected_exception = pytest.raises(error) if error else contextlib.nullcontext()
+        replacement = b'replacement' if 'b' in mode else 'replacement'
+        options = {} if 'b' in mode else {'encoding': 'utf-8'}
+        with (
+            expected_exception as exc,
+            doc.in_place(mode=mode, backup_extension='.original', **options) as (
+                reader,
+                writer,
+            ),
+        ):
+            descriptors = [reader.fileno(), writer.fileno()]
+            writer.write(replacement)
+            if failure:
+                raise failure
+        if failure:
+            assert exc.value is failure
+        assert reader.closed
+        assert writer.closed
+        for fd in descriptors:
+            with pytest.raises(OSError):
+                os.fstat(fd)
+        expected = self.reference_content if error else 'replacement'
+>       assert doc.read_text(encoding='utf-8') == expected
+E       AssertionError: assert 'replacement' == 'The quick br...e lazy dog.\n'
+E         
+E         - The quick brown fox jumped over the lazy dog.
+E         + replacement
+
+tests/test_path.py:1381: AssertionError
+_________ TestInPlace.test_context_exit_closes_resources[SystemExit-r] _________
+
+self = <tests.test_path.TestInPlace object at 0x106e85710>
+tmpdir = local('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-21/test_context_exit_closes_resou6')
+mode = 'r', error = <class 'SystemExit'>
+
+    @pytest.mark.parametrize('mode', ['r', 'rb'])
+    @pytest.mark.parametrize(
+        'error', [None, RuntimeError, KeyboardInterrupt, SystemExit]
+    )
+    def test_context_exit_closes_resources(self, tmpdir, mode, error):
+        doc = self.create_reference(tmpdir)
+        doc.chmod(0o640)
+        permissions = stat.S_IMODE(doc.stat().st_mode)
+        failure = error('body failed') if error else None
+        expected_exception = pytest.raises(error) if error else contextlib.nullcontext()
+        replacement = b'replacement' if 'b' in mode else 'replacement'
+        options = {} if 'b' in mode else {'encoding': 'utf-8'}
+        with (
+            expected_exception as exc,
+            doc.in_place(mode=mode, backup_extension='.original', **options) as (
+                reader,
+                writer,
+            ),
+        ):
+            descriptors = [reader.fileno(), writer.fileno()]
+            writer.write(replacement)
+            if failure:
+                raise failure
+        if failure:
+            assert exc.value is failure
+        assert reader.closed
+        assert writer.closed
+        for fd in descriptors:
+            with pytest.raises(OSError):
+                os.fstat(fd)
+        expected = self.reference_content if error else 'replacement'
+>       assert doc.read_text(encoding='utf-8') == expected
+E       AssertionError: assert 'replacement' == 'The quick br...e lazy dog.\n'
+E         
+E         - The quick brown fox jumped over the lazy dog.
+E         + replacement
+
+tests/test_path.py:1381: AssertionError
+________ TestInPlace.test_context_exit_closes_resources[SystemExit-rb] _________
+
+self = <tests.test_path.TestInPlace object at 0x106e85950>
+tmpdir = local('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-21/test_context_exit_closes_resou7')
+mode = 'rb', error = <class 'SystemExit'>
+
+    @pytest.mark.parametrize('mode', ['r', 'rb'])
+    @pytest.mark.parametrize(
+        'error', [None, RuntimeError, KeyboardInterrupt, SystemExit]
+    )
+    def test_context_exit_closes_resources(self, tmpdir, mode, error):
+        doc = self.create_reference(tmpdir)
+        doc.chmod(0o640)
+        permissions = stat.S_IMODE(doc.stat().st_mode)
+        failure = error('body failed') if error else None
+        expected_exception = pytest.raises(error) if error else contextlib.nullcontext()
+        replacement = b'replacement' if 'b' in mode else 'replacement'
+        options = {} if 'b' in mode else {'encoding': 'utf-8'}
+        with (
+            expected_exception as exc,
+            doc.in_place(mode=mode, backup_extension='.original', **options) as (
+                reader,
+                writer,
+            ),
+        ):
+            descriptors = [reader.fileno(), writer.fileno()]
+            writer.write(replacement)
+            if failure:
+                raise failure
+        if failure:
+            assert exc.value is failure
+        assert reader.closed
+        assert writer.closed
+        for fd in descriptors:
+            with pytest.raises(OSError):
+                os.fstat(fd)
+        expected = self.reference_content if error else 'replacement'
+>       assert doc.read_text(encoding='utf-8') == expected
+E       AssertionError: assert 'replacement' == 'The quick br...e lazy dog.\n'
+E         
+E         - The quick brown fox jumped over the lazy dog.
+E         + replacement
+
+tests/test_path.py:1381: AssertionError
+_______ TestInPlace.test_failed_rollback_unlink_retains_original_backup ________
+
+self = <tests.test_path.TestInPlace object at 0x106e85c50>
+tmpdir = local('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-21/test_failed_rollback_unlink_re0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x106eb7410>
+
+    def test_failed_rollback_unlink_retains_original_backup(self, tmpdir, monkeypatch):
+        doc = self.create_reference(tmpdir)
+        backup = doc + '.bak'
+        body_error = RuntimeError('body failed')
+        rollback_error = PermissionError('cannot remove replacement')
+        original_remove = Path.remove_p
+    
+        def fail_remove(target):
+            if target == doc:
+                raise rollback_error
+            return original_remove(target)
+    
+        monkeypatch.setattr(Path, 'remove_p', fail_remove)
+        with (
+            pytest.raises(PermissionError) as exc,
+            doc.in_place(encoding='utf-8') as (_, writer),
+        ):
+            writer.write('partial replacement')
+            raise body_error
+        assert exc.value is rollback_error
+        assert exc.value.__context__ is body_error
+        assert writer.closed
+>       assert backup.read_text(encoding='utf-8') == self.reference_content
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_path.py:1407: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+path/__init__.py:832: in read_text
+    with self.open(encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Path('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-21/test_failed_rollback_unlink_re0/document.bak')
+args = (), kwargs = {'encoding': 'utf-8', 'errors': None}
+
+    def open(self, *args, **kwargs):
+        """Open this file and return a corresponding file object.
+    
+        Keyword arguments work as in :func:`io.open`.  If the file cannot be
+        opened, an :class:`OSError` is raised.
+        """
+>       return open(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: Path('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-21/test_failed_rollback_unlink_re0/document.bak')
+
+path/__init__.py:756: FileNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_path.py::TestInPlace::test_interrupted_writer_setup_closes_resources[KeyboardInterrupt]
+FAILED tests/test_path.py::TestInPlace::test_interrupted_writer_setup_closes_resources[SystemExit]
+FAILED tests/test_path.py::TestInPlace::test_context_exit_closes_resources[KeyboardInterrupt-r]
+FAILED tests/test_path.py::TestInPlace::test_context_exit_closes_resources[KeyboardInterrupt-rb]
+FAILED tests/test_path.py::TestInPlace::test_context_exit_closes_resources[SystemExit-r]
+FAILED tests/test_path.py::TestInPlace::test_context_exit_closes_resources[SystemExit-rb]
+FAILED tests/test_path.py::TestInPlace::test_failed_rollback_unlink_retains_original_backup
+================= 7 failed, 4 passed, 128 deselected in 0.20s ==================
