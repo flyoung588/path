@@ -1,0 +1,14 @@
+{
+  "path/__init__.py": {
+    "sha256": "574854d46b157cebe2123ade62ceb181ef7fc104d808d5d69c7848a964c17cae",
+    "matches_safety_commit": true
+  },
+  "tests/test_path.py": {
+    "sha256": "763774e1f0166cca300e0ad60dd6c38ce437bcce71a6d80ada57a7d00b3bd7fa",
+    "matches_safety_commit": true
+  },
+  "newsfragments/+inplace-setup.bugfix.rst": {
+    "sha256": "9e3d320265a0bc2f41ecdb02ecd53cac90eb43c8cd29e8b7181e6e0cc133158e",
+    "matches_safety_commit": true
+  }
+}

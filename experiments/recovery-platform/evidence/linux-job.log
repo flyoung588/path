@@ -1,0 +1,374 @@
+﻿2026-10-29T01:30:59.6598879Z Current runner version: '2.338.0'
+2026-10-29T01:30:59.6621883Z ##[group]Runner Image Provisioner
+2026-10-29T01:30:59.6622994Z Hosted Compute Agent
+2026-10-29T01:30:59.6623591Z Version: 20261021.618
+2026-10-29T01:30:59.6624185Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-10-29T01:30:59.6624812Z Build Date: 2026-10-21T00:45:21Z
+2026-10-29T01:30:59.6625433Z Worker ID: {2e183ff2-59fd-48a0-8a1d-d39fef9d55b1}
+2026-10-29T01:30:59.6626062Z Region: centralus
+2026-10-29T01:30:59.6626611Z Cloud: Azure
+2026-10-29T01:30:59.6627087Z ##[endgroup]
+2026-10-29T01:30:59.6628252Z ##[group]Operating System
+2026-10-29T01:30:59.6628774Z Ubuntu
+2026-10-29T01:30:59.6629307Z 24.04.5
+2026-10-29T01:30:59.6629742Z LTS
+2026-10-29T01:30:59.6630196Z ##[endgroup]
+2026-10-29T01:30:59.6631003Z ##[group]Runner Image
+2026-10-29T01:30:59.6631506Z Image: ubuntu-24.04
+2026-10-29T01:30:59.6632066Z Version: 20261025.353.1
+2026-10-29T01:30:59.6633163Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261025.353/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-29T01:30:59.6634506Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261025.353
+2026-10-29T01:30:59.6635316Z ##[endgroup]
+2026-10-29T01:30:59.6636312Z ##[group]GITHUB_TOKEN Permissions
+2026-10-29T01:30:59.6638101Z Contents: read
+2026-10-29T01:30:59.6639106Z Metadata: read
+2026-10-29T01:30:59.6639692Z ##[endgroup]
+2026-10-29T01:30:59.6641589Z Secret source: Actions
+2026-10-29T01:30:59.6642470Z Cache mode: write
+2026-10-29T01:30:59.6643214Z Prepare workflow directory
+2026-10-29T01:30:59.6905804Z Prepare all required actions
+2026-10-29T01:30:59.6943960Z Getting action download info
+2026-10-29T01:30:59.9149640Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-29T01:30:59.9948151Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-29T01:31:00.3072440Z Complete job name: Python 3.13 - ubuntu-latest
+2026-10-29T01:31:00.3736249Z ##[group]Run actions/checkout@v4
+2026-10-29T01:31:00.3736913Z with:
+2026-10-29T01:31:00.3737249Z   fetch-depth: 0
+2026-10-29T01:31:00.3737626Z   persist-credentials: false
+2026-10-29T01:31:00.3738031Z   repository: flyoung588/path
+2026-10-29T01:31:00.3741393Z   token: ***
+2026-10-29T01:31:00.3741751Z   ssh-strict: true
+2026-10-29T01:31:00.3742110Z   ssh-user: git
+2026-10-29T01:31:00.3742458Z   clean: true
+2026-10-29T01:31:00.3742825Z   sparse-checkout-cone-mode: true
+2026-10-29T01:31:00.3743237Z   fetch-tags: false
+2026-10-29T01:31:00.3743593Z   show-progress: true
+2026-10-29T01:31:00.3743951Z   lfs: false
+2026-10-29T01:31:00.3744275Z   submodules: false
+2026-10-29T01:31:00.3744629Z   set-safe-directory: true
+2026-10-29T01:31:00.3745020Z   allow-unsafe-pr-checkout: false
+2026-10-29T01:31:00.3745556Z ##[endgroup]
+2026-10-29T01:31:00.5594685Z Syncing repository: flyoung588/path
+2026-10-29T01:31:00.5596567Z ##[group]Getting Git version info
+2026-10-29T01:31:00.5597483Z Working directory is '/home/runner/work/path/path'
+2026-10-29T01:31:00.5612477Z [command]/usr/bin/git version
+2026-10-29T01:31:00.5787560Z git version 2.56.0
+2026-10-29T01:31:00.5810671Z ##[endgroup]
+2026-10-29T01:31:00.5817505Z Temporarily overriding HOME='/home/runner/work/_temp/947d9ad5-a888-4268-81aa-14f2780c5e5f' before making global git config changes
+2026-10-29T01:31:00.5819713Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-29T01:31:00.5821791Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/path/path
+2026-10-29T01:31:00.5864000Z Deleting the contents of '/home/runner/work/path/path'
+2026-10-29T01:31:00.5871203Z ##[group]Initializing the repository
+2026-10-29T01:31:00.5872019Z [command]/usr/bin/git init /home/runner/work/path/path
+2026-10-29T01:31:00.5937535Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-29T01:31:00.5938954Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-29T01:31:00.5940285Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-29T01:31:00.5941797Z hint: call:
+2026-10-29T01:31:00.5942416Z hint:
+2026-10-29T01:31:00.5943196Z hint: 	git config --global init.defaultBranch <name>
+2026-10-29T01:31:00.5944117Z hint:
+2026-10-29T01:31:00.5944999Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-29T01:31:00.5946408Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-29T01:31:00.5947503Z hint:
+2026-10-29T01:31:00.5948146Z hint: 	git branch -m <name>
+2026-10-29T01:31:00.5948850Z hint:
+2026-10-29T01:31:00.5949751Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-29T01:31:00.5951236Z Initialized empty Git repository in /home/runner/work/path/path/.git/
+2026-10-29T01:31:00.5954395Z [command]/usr/bin/git remote add origin https://github.com/flyoung588/path
+2026-10-29T01:31:00.5991196Z ##[endgroup]
+2026-10-29T01:31:00.5992176Z ##[group]Disabling automatic garbage collection
+2026-10-29T01:31:00.5994743Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-29T01:31:00.6023669Z ##[endgroup]
+2026-10-29T01:31:00.6024520Z ##[group]Setting up auth
+2026-10-29T01:31:00.6028214Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-29T01:31:00.6072893Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-29T01:31:00.6456229Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-29T01:31:00.6498673Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-29T01:31:00.6739070Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-29T01:31:00.6766870Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-29T01:31:00.7016703Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-29T01:31:00.7073738Z ##[endgroup]
+2026-10-29T01:31:00.7074888Z ##[group]Fetching the repository
+2026-10-29T01:31:00.7087585Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-10-29T01:31:01.3900195Z From https://github.com/flyoung588/path
+2026-10-29T01:31:01.3922022Z  * [new branch]      ci/recovery-safety-linux-windows-20261029 -> origin/ci/recovery-safety-linux-windows-20261029
+2026-10-29T01:31:01.3948084Z  * [new branch]      experiment/in-place-recovery-evidence-20261029 -> origin/experiment/in-place-recovery-evidence-20261029
+2026-10-29T01:31:01.3949415Z  * [new branch]      experiment/recovery-safety-evidence-20261029 -> origin/experiment/recovery-safety-evidence-20261029
+2026-10-29T01:31:01.3951160Z  * [new branch]      fix/in-place-interruption-recovery -> origin/fix/in-place-interruption-recovery
+2026-10-29T01:31:01.3952785Z  * [new branch]      main           -> origin/main
+2026-10-29T01:31:01.3953470Z  * [new tag]         10.0           -> 10.0
+2026-10-29T01:31:01.3954204Z  * [new tag]         10.1           -> 10.1
+2026-10-29T01:31:01.3954848Z  * [new tag]         10.2           -> 10.2
+2026-10-29T01:31:01.3955539Z  * [new tag]         10.3           -> 10.3
+2026-10-29T01:31:01.3956131Z  * [new tag]         10.3.1         -> 10.3.1
+2026-10-29T01:31:01.3956762Z  * [new tag]         10.4           -> 10.4
+2026-10-29T01:31:01.3957333Z  * [new tag]         10.5           -> 10.5
+2026-10-29T01:31:01.3957899Z  * [new tag]         10.6           -> 10.6
+2026-10-29T01:31:01.3958502Z  * [new tag]         11.0           -> 11.0
+2026-10-29T01:31:01.3959078Z  * [new tag]         11.0.1         -> 11.0.1
+2026-10-29T01:31:01.3959649Z  * [new tag]         11.1.0         -> 11.1.0
+2026-10-29T01:31:01.3960588Z  * [new tag]         11.2.0         -> 11.2.0
+2026-10-29T01:31:01.3961396Z  * [new tag]         11.3.0         -> 11.3.0
+2026-10-29T01:31:01.3962041Z  * [new tag]         11.4.0         -> 11.4.0
+2026-10-29T01:31:01.3962563Z  * [new tag]         11.4.1         -> 11.4.1
+2026-10-29T01:31:01.3963088Z  * [new tag]         11.5.0         -> 11.5.0
+2026-10-29T01:31:01.3963597Z  * [new tag]         11.5.1         -> 11.5.1
+2026-10-29T01:31:01.3964103Z  * [new tag]         11.5.2         -> 11.5.2
+2026-10-29T01:31:01.3964606Z  * [new tag]         12.0           -> 12.0
+2026-10-29T01:31:01.3965209Z  * [new tag]         12.0.1         -> 12.0.1
+2026-10-29T01:31:01.3965726Z  * [new tag]         2.2            -> 2.2
+2026-10-29T01:31:01.3966224Z  * [new tag]         2.2.1          -> 2.2.1
+2026-10-29T01:31:01.3966764Z  * [new tag]         2.2.2          -> 2.2.2
+2026-10-29T01:31:01.3967800Z  * [new tag]         2.3            -> 2.3
+2026-10-29T01:31:01.3968576Z  * [new tag]         2.4            -> 2.4
+2026-10-29T01:31:01.3969307Z  * [new tag]         2.4.1          -> 2.4.1
+2026-10-29T01:31:01.3970050Z  * [new tag]         2.5            -> 2.5
+2026-10-29T01:31:01.3970976Z  * [new tag]         2.6            -> 2.6
+2026-10-29T01:31:01.3971729Z  * [new tag]         2.6.1          -> 2.6.1
+2026-10-29T01:31:01.3972478Z  * [new tag]         3.0            -> 3.0
+2026-10-29T01:31:01.3973222Z  * [new tag]         3.0.1          -> 3.0.1
+2026-10-29T01:31:01.3973968Z  * [new tag]         3.1            -> 3.1
+2026-10-29T01:31:01.3974708Z  * [new tag]         3.2            -> 3.2
+2026-10-29T01:31:01.3975440Z  * [new tag]         4.0            -> 4.0
+2026-10-29T01:31:01.3976172Z  * [new tag]         4.1            -> 4.1
+2026-10-29T01:31:01.3977211Z  * [new tag]         4.2            -> 4.2
+2026-10-29T01:31:01.3978237Z  * [new tag]         4.3            -> 4.3
+2026-10-29T01:31:01.3979190Z  * [new tag]         4.4            -> 4.4
+2026-10-29T01:31:01.3980237Z  * [new tag]         5.0            -> 5.0
+2026-10-29T01:31:01.3981186Z  * [new tag]         5.1            -> 5.1
+2026-10-29T01:31:01.3981927Z  * [new tag]         5.2            -> 5.2
+2026-10-29T01:31:01.3982657Z  * [new tag]         5.3            -> 5.3
+2026-10-29T01:31:01.3983392Z  * [new tag]         6.0            -> 6.0
+2026-10-29T01:31:01.3984187Z  * [new tag]         6.1            -> 6.1
+2026-10-29T01:31:01.3984961Z  * [new tag]         6.2            -> 6.2
+2026-10-29T01:31:01.3985736Z  * [new tag]         7.0            -> 7.0
+2026-10-29T01:31:01.3986481Z  * [new tag]         7.1            -> 7.1
+2026-10-29T01:31:01.3987219Z  * [new tag]         7.2            -> 7.2
+2026-10-29T01:31:01.3992863Z  * [new tag]         7.3            -> 7.3
+2026-10-29T01:31:01.3993662Z  * [new tag]         7.4            -> 7.4
+2026-10-29T01:31:01.3994466Z  * [new tag]         7.5            -> 7.5
+2026-10-29T01:31:01.3995218Z  * [new tag]         7.6            -> 7.6
+2026-10-29T01:31:01.3996067Z  * [new tag]         7.6.1          -> 7.6.1
+2026-10-29T01:31:01.3996936Z  * [new tag]         7.6.2          -> 7.6.2
+2026-10-29T01:31:01.3997764Z  * [new tag]         7.7            -> 7.7
+2026-10-29T01:31:01.3998593Z  * [new tag]         7.7.1          -> 7.7.1
+2026-10-29T01:31:01.3999410Z  * [new tag]         8.0            -> 8.0
+2026-10-29T01:31:01.4000150Z  * [new tag]         8.1            -> 8.1
+2026-10-29T01:31:01.4001069Z  * [new tag]         8.1.1          -> 8.1.1
+2026-10-29T01:31:01.4001809Z  * [new tag]         8.1.2          -> 8.1.2
+2026-10-29T01:31:01.4002502Z  * [new tag]         8.2            -> 8.2
+2026-10-29T01:31:01.4003230Z  * [new tag]         8.2.1          -> 8.2.1
+2026-10-29T01:31:01.4003968Z  * [new tag]         8.3            -> 8.3
+2026-10-29T01:31:01.4004622Z  * [new tag]         9.0            -> 9.0
+2026-10-29T01:31:01.4005283Z  * [new tag]         9.0.1          -> 9.0.1
+2026-10-29T01:31:01.4005985Z  * [new tag]         9.1            -> 9.1
+2026-10-29T01:31:01.4006896Z  * [new tag]         archive/spaces -> archive/spaces
+2026-10-29T01:31:01.4008356Z  * [new tag]         v12.0.2        -> v12.0.2
+2026-10-29T01:31:01.4009317Z  * [new tag]         v12.1.0        -> v12.1.0
+2026-10-29T01:31:01.4010269Z  * [new tag]         v12.2.0        -> v12.2.0
+2026-10-29T01:31:01.4011623Z  * [new tag]         v12.3.0        -> v12.3.0
+2026-10-29T01:31:01.4012387Z  * [new tag]         v12.4.0        -> v12.4.0
+2026-10-29T01:31:01.4013103Z  * [new tag]         v12.5.0        -> v12.5.0
+2026-10-29T01:31:01.4013774Z  * [new tag]         v13.0.0        -> v13.0.0
+2026-10-29T01:31:01.4014473Z  * [new tag]         v13.1.0        -> v13.1.0
+2026-10-29T01:31:01.4015162Z  * [new tag]         v13.2.0        -> v13.2.0
+2026-10-29T01:31:01.4015875Z  * [new tag]         v13.3.0        -> v13.3.0
+2026-10-29T01:31:01.4016617Z  * [new tag]         v14.0.0        -> v14.0.0
+2026-10-29T01:31:01.4017347Z  * [new tag]         v14.0.1        -> v14.0.1
+2026-10-29T01:31:01.4018142Z  * [new tag]         v15.0.0        -> v15.0.0
+2026-10-29T01:31:01.4018965Z  * [new tag]         v15.0.1        -> v15.0.1
+2026-10-29T01:31:01.4019659Z  * [new tag]         v15.1.0        -> v15.1.0
+2026-10-29T01:31:01.4020674Z  * [new tag]         v15.1.1        -> v15.1.1
+2026-10-29T01:31:01.4021536Z  * [new tag]         v15.1.2        -> v15.1.2
+2026-10-29T01:31:01.4022364Z  * [new tag]         v16.0.0        -> v16.0.0
+2026-10-29T01:31:01.4023129Z  * [new tag]         v16.1.0        -> v16.1.0
+2026-10-29T01:31:01.4023920Z  * [new tag]         v16.10.0       -> v16.10.0
+2026-10-29T01:31:01.4024711Z  * [new tag]         v16.10.1       -> v16.10.1
+2026-10-29T01:31:01.4025494Z  * [new tag]         v16.10.2       -> v16.10.2
+2026-10-29T01:31:01.4026286Z  * [new tag]         v16.11.0       -> v16.11.0
+2026-10-29T01:31:01.4027079Z  * [new tag]         v16.12.0       -> v16.12.0
+2026-10-29T01:31:01.4027863Z  * [new tag]         v16.12.1       -> v16.12.1
+2026-10-29T01:31:01.4028655Z  * [new tag]         v16.13.0       -> v16.13.0
+2026-10-29T01:31:01.4029668Z  * [new tag]         v16.14.0       -> v16.14.0
+2026-10-29T01:31:01.4030647Z  * [new tag]         v16.15.0       -> v16.15.0
+2026-10-29T01:31:01.4031441Z  * [new tag]         v16.16.0       -> v16.16.0
+2026-10-29T01:31:01.4032274Z  * [new tag]         v16.2.0        -> v16.2.0
+2026-10-29T01:31:01.4033300Z  * [new tag]         v16.3.0        -> v16.3.0
+2026-10-29T01:31:01.4033925Z  * [new tag]         v16.4.0        -> v16.4.0
+2026-10-29T01:31:01.4034463Z  * [new tag]         v16.5.0        -> v16.5.0
+2026-10-29T01:31:01.4034989Z  * [new tag]         v16.6.0        -> v16.6.0
+2026-10-29T01:31:01.4035508Z  * [new tag]         v16.7.0        -> v16.7.0
+2026-10-29T01:31:01.4036032Z  * [new tag]         v16.7.1        -> v16.7.1
+2026-10-29T01:31:01.4036561Z  * [new tag]         v16.8.0        -> v16.8.0
+2026-10-29T01:31:01.4037081Z  * [new tag]         v16.9.0        -> v16.9.0
+2026-10-29T01:31:01.4037598Z  * [new tag]         v17.0.0        -> v17.0.0
+2026-10-29T01:31:01.4038147Z  * [new tag]         v17.1.0        -> v17.1.0
+2026-10-29T01:31:01.4038705Z  * [new tag]         v17.1.1        -> v17.1.1
+2026-10-29T01:31:01.4040926Z [command]/usr/bin/git branch --list --remote origin/ci/recovery-safety-linux-windows-20261029
+2026-10-29T01:31:01.4041907Z   origin/ci/recovery-safety-linux-windows-20261029
+2026-10-29T01:31:01.4043347Z [command]/usr/bin/git rev-parse refs/remotes/origin/ci/recovery-safety-linux-windows-20261029
+2026-10-29T01:31:01.4044321Z aed5f362447c9c7b24017355a1005d0f221f938a
+2026-10-29T01:31:01.4046123Z ##[endgroup]
+2026-10-29T01:31:01.4046950Z ##[group]Determining the checkout info
+2026-10-29T01:31:01.4047674Z ##[endgroup]
+2026-10-29T01:31:01.4048078Z [command]/usr/bin/git sparse-checkout disable
+2026-10-29T01:31:01.4082581Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-29T01:31:01.4116464Z ##[group]Checking out the ref
+2026-10-29T01:31:01.4120512Z [command]/usr/bin/git checkout --progress --force -B ci/recovery-safety-linux-windows-20261029 refs/remotes/origin/ci/recovery-safety-linux-windows-20261029
+2026-10-29T01:31:01.4189567Z Switched to a new branch 'ci/recovery-safety-linux-windows-20261029'
+2026-10-29T01:31:01.4194863Z branch 'ci/recovery-safety-linux-windows-20261029' set up to track 'origin/ci/recovery-safety-linux-windows-20261029'.
+2026-10-29T01:31:01.4198603Z ##[endgroup]
+2026-10-29T01:31:01.4239191Z [command]/usr/bin/git log -1 --format=%H
+2026-10-29T01:31:01.4267840Z aed5f362447c9c7b24017355a1005d0f221f938a
+2026-10-29T01:31:01.4275724Z ##[group]Removing auth
+2026-10-29T01:31:01.4278611Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-29T01:31:01.4311693Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-29T01:31:01.4511219Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-29T01:31:01.4539964Z http.https://github.com/.extraheader
+2026-10-29T01:31:01.4545942Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-29T01:31:01.4581325Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-29T01:31:01.4778876Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-29T01:31:01.4814734Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-29T01:31:01.5010073Z ##[endgroup]
+2026-10-29T01:31:01.5357634Z ##[group]Run actions/setup-python@v5
+2026-10-29T01:31:01.5358404Z with:
+2026-10-29T01:31:01.5358952Z   python-version: 3.13
+2026-10-29T01:31:01.5359585Z   check-latest: false
+2026-10-29T01:31:01.5366622Z   token: ***
+2026-10-29T01:31:01.5367288Z   update-environment: true
+2026-10-29T01:31:01.5367982Z   allow-prereleases: false
+2026-10-29T01:31:01.5368651Z   freethreaded: false
+2026-10-29T01:31:01.5369232Z ##[endgroup]
+2026-10-29T01:31:01.6450272Z ##[group]Installed versions
+2026-10-29T01:31:01.6515754Z (node:2175) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-29T01:31:01.6518032Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-29T01:31:01.6519672Z Successfully set up CPython (3.13.17)
+2026-10-29T01:31:01.6521458Z ##[endgroup]
+2026-10-29T01:31:01.6735743Z ##[group]Run python -m pip install tox
+2026-10-29T01:31:01.6736623Z [36;1mpython -m pip install tox[0m
+2026-10-29T01:31:01.6772139Z shell: /usr/bin/bash -e {0}
+2026-10-29T01:31:01.6772848Z env:
+2026-10-29T01:31:01.6773624Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.17/x64
+2026-10-29T01:31:01.6774811Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib/pkgconfig
+2026-10-29T01:31:01.6776003Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+2026-10-29T01:31:01.6777070Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+2026-10-29T01:31:01.6778118Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+2026-10-29T01:31:01.6779158Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib
+2026-10-29T01:31:01.6780048Z ##[endgroup]
+2026-10-29T01:31:02.4044940Z Collecting tox
+2026-10-29T01:31:02.4816795Z   Downloading tox-4.67.4-py3-none-any.whl.metadata (3.7 kB)
+2026-10-29T01:31:02.5093984Z Collecting cachetools>=7.0.3 (from tox)
+2026-10-29T01:31:02.5278715Z   Downloading cachetools-7.2.7-py3-none-any.whl.metadata (5.5 kB)
+2026-10-29T01:31:02.5515043Z Collecting colorama>=0.4.6 (from tox)
+2026-10-29T01:31:02.5666791Z   Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+2026-10-29T01:31:02.6112981Z Collecting filelock>=3.25 (from tox)
+2026-10-29T01:31:02.6265186Z   Downloading filelock-4.2.4-py3-none-any.whl.metadata (2.0 kB)
+2026-10-29T01:31:02.6507349Z Collecting packaging>=26 (from tox)
+2026-10-29T01:31:02.6672863Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-10-29T01:31:02.6953637Z Collecting platformdirs>=4.9.4 (from tox)
+2026-10-29T01:31:02.7122417Z   Downloading platformdirs-4.14.0-py3-none-any.whl.metadata (5.4 kB)
+2026-10-29T01:31:02.7340827Z Collecting pluggy>=1.6 (from tox)
+2026-10-29T01:31:02.7506411Z   Downloading pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+2026-10-29T01:31:02.7764188Z Collecting pyproject-api>=1.10 (from tox)
+2026-10-29T01:31:02.7927790Z   Downloading pyproject_api-1.12.2-py3-none-any.whl.metadata (2.1 kB)
+2026-10-29T01:31:02.8240634Z Collecting python-discovery>=1.4.4 (from tox)
+2026-10-29T01:31:02.8398282Z   Downloading python_discovery-1.6.7-py3-none-any.whl.metadata (3.9 kB)
+2026-10-29T01:31:02.8622584Z Collecting tomli-w>=1.2 (from tox)
+2026-10-29T01:31:02.8782250Z   Downloading tomli_w-1.2.0-py3-none-any.whl.metadata (5.7 kB)
+2026-10-29T01:31:02.9189659Z Collecting virtualenv>=21.1 (from tox)
+2026-10-29T01:31:02.9343333Z   Downloading virtualenv-21.15.1-py3-none-any.whl.metadata (4.1 kB)
+2026-10-29T01:31:02.9612854Z Collecting distlib<1,>=0.4.3 (from virtualenv>=21.1->tox)
+2026-10-29T01:31:02.9768034Z   Downloading distlib-0.4.4-py2.py3-none-any.whl.metadata (5.3 kB)
+2026-10-29T01:31:03.0011219Z Downloading tox-4.67.4-py3-none-any.whl (239 kB)
+2026-10-29T01:31:03.0587886Z Downloading cachetools-7.2.7-py3-none-any.whl (19 kB)
+2026-10-29T01:31:03.0784101Z Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+2026-10-29T01:31:03.0982093Z Downloading filelock-4.2.4-py3-none-any.whl (162 kB)
+2026-10-29T01:31:03.1211018Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+2026-10-29T01:31:03.1441270Z Downloading platformdirs-4.14.0-py3-none-any.whl (35 kB)
+2026-10-29T01:31:03.1654837Z Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+2026-10-29T01:31:03.1887633Z Downloading pyproject_api-1.12.2-py3-none-any.whl (14 kB)
+2026-10-29T01:31:03.2079303Z Downloading python_discovery-1.6.7-py3-none-any.whl (39 kB)
+2026-10-29T01:31:03.2250808Z Downloading tomli_w-1.2.0-py3-none-any.whl (6.7 kB)
+2026-10-29T01:31:03.2629757Z Downloading virtualenv-21.15.1-py3-none-any.whl (5.6 MB)
+2026-10-29T01:31:03.3489825Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.6/5.6 MB 66.4 MB/s  0:00:00
+2026-10-29T01:31:03.3660655Z Downloading distlib-0.4.4-py2.py3-none-any.whl (472 kB)
+2026-10-29T01:31:03.4308559Z Installing collected packages: distlib, tomli-w, pluggy, platformdirs, packaging, filelock, colorama, cachetools, python-discovery, pyproject-api, virtualenv, tox
+2026-10-29T01:31:04.0171187Z 
+2026-10-29T01:31:04.0187161Z Successfully installed cachetools-7.2.7 colorama-0.4.6 distlib-0.4.4 filelock-4.2.4 packaging-26.3 platformdirs-4.14.0 pluggy-1.7.0 pyproject-api-1.12.2 python-discovery-1.6.7 tomli-w-1.2.0 tox-4.67.4 virtualenv-21.15.1
+2026-10-29T01:31:04.0697044Z ##[group]Run python -m tox -e py
+2026-10-29T01:31:04.0697306Z [36;1mpython -m tox -e py[0m
+2026-10-29T01:31:04.0715878Z shell: /usr/bin/bash -e {0}
+2026-10-29T01:31:04.0716083Z env:
+2026-10-29T01:31:04.0716309Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.17/x64
+2026-10-29T01:31:04.0716675Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib/pkgconfig
+2026-10-29T01:31:04.0717009Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+2026-10-29T01:31:04.0717314Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+2026-10-29T01:31:04.0717613Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.17/x64
+2026-10-29T01:31:04.0717905Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.17/x64/lib
+2026-10-29T01:31:04.0718162Z ##[endgroup]
+2026-10-29T01:31:04.5162026Z .pkg: install_requires> python -I -m pip install coherent.licensed 'setuptools>=77' 'setuptools_scm[toml]>=3.4.1'
+2026-10-29T01:31:06.9624836Z .pkg: _optional_hooks> python /opt/hostedtoolcache/Python/3.13.17/x64/lib/python3.13/site-packages/pyproject_api/_backend.py True setuptools.build_meta
+2026-10-29T01:31:07.1989044Z .pkg: get_requires_for_build_editable> python /opt/hostedtoolcache/Python/3.13.17/x64/lib/python3.13/site-packages/pyproject_api/_backend.py True setuptools.build_meta
+2026-10-29T01:31:07.6392046Z .pkg: freeze> python -m pip freeze --all
+2026-10-29T01:31:07.8140597Z .pkg: coherent.licensed==0.5.2,packaging==26.3,pip==26.2.2,setuptools==84.2.1,setuptools-scm==10.3.4,vcs-versioning==2.6.0
+2026-10-29T01:31:07.8144664Z .pkg: build_editable> python /opt/hostedtoolcache/Python/3.13.17/x64/lib/python3.13/site-packages/pyproject_api/_backend.py True setuptools.build_meta
+2026-10-29T01:31:08.1386886Z py: install_package_deps> python -I -m pip install appdirs more_itertools packaging pygments 'pytest!=8.1.*,>=6' 'pytest-checkdocs>=2.14' pytest-cov 'pytest-enabler>=3.4' 'pytest-mypy>=1.0.1; platform_python_implementation != "PyPy"' 'pytest-ruff>=0.2.1; sys_platform != "cygwin"' 'pywin32; platform_system == "Windows" and python_version < "3.12"' types-pywin32
+2026-10-29T01:31:19.0845519Z py: install_package> python -I -m pip install --force-reinstall --no-deps /home/runner/work/path/path/.tox/.tmp/package/1/path-17.1.2.dev38+gaed5f3624-0.editable-py3-none-any.whl
+2026-10-29T01:31:19.4215073Z py: freeze> python -m pip freeze --all
+2026-10-29T01:31:19.6198773Z py: alabaster==1.0.0,appdirs==1.4.4,ast_serialize==0.13.1,babel==2.18.0,build==1.6.1,certifi==2026.10.23,charset-normalizer==3.5.2,coverage==7.17.0,distlib==0.4.4,docutils==0.23,domdf-python-tools==3.11.0,filelock==4.2.4,idna==3.20,imagesize==2.0.1,iniconfig==2.3.1,jaraco.context==6.1.2,jaraco.functools==4.6.0,jaraco.packaging==10.4.0,Jinja2==3.1.6,librt==0.16.0,MarkupSafe==3.0.4,more-itertools==11.2.1,mypy==2.4.1,mypy_extensions==1.1.0,natsort==8.4.0,packaging==26.3,path @ file:///home/runner/work/path/path/.tox/.tmp/package/1/path-17.1.2.dev38%2Bgaed5f3624-0.editable-py3-none-any.whl#sha256=602801412bee799eaf3154081c45ca33e5c37b096dd65debc414e481e55f28be,pathspec==1.1.1,pip==26.2.2,platformdirs==4.14.0,pluggy==1.7.0,Pygments==2.21.0,pyproject_hooks==1.3.3,pytest==9.2.0,pytest-checkdocs==2.14.0,pytest-cov==7.1.0,pytest-enabler==3.4.0,pytest-mypy==1.1.0,pytest-ruff==0.5,python-discovery==1.6.7,requests==2.34.2,roman-numerals==4.1.0,ruff==0.17.3,snowballstemmer==3.1.1,Sphinx==9.2.0,sphinxcontrib-applehelp==2.0.0,sphinxcontrib-devhelp==2.0.0,sphinxcontrib-htmlhelp==2.1.0,sphinxcontrib-jsmath==2.0.0,sphinxcontrib-qthelp==2.0.0,sphinxcontrib-serializinghtml==2.0.0,toml==0.10.2,types-pywin32==312.0.0.20261024,typing_extensions==4.16.0,urllib3==2.8.0,virtualenv==21.15.1
+2026-10-29T01:31:19.6204145Z py: commands[0]> pytest
+2026-10-29T01:31:20.7595585Z ============================= test session starts ==============================
+2026-10-29T01:31:20.7596136Z platform linux -- Python 3.13.17, pytest-9.2.0, pluggy-1.7.0
+2026-10-29T01:31:20.7596590Z cachedir: .tox/py/.pytest_cache
+2026-10-29T01:31:20.7596812Z rootdir: /home/runner/work/path/path
+2026-10-29T01:31:20.7597370Z configfile: pytest.ini
+2026-10-29T01:31:20.7597698Z plugins: ruff-0.5, enabler-3.4.0, cov-7.1.0, platformdirs-4.14.0, mypy-1.1.0, checkdocs-2.14.0
+2026-10-29T01:31:20.7598031Z collected 188 items
+2026-10-29T01:31:20.7598149Z 
+2026-10-29T01:31:22.9846963Z docs/conf.py ...                                                         [  1%]
+2026-10-29T01:31:23.0407213Z path/__init__.py .........................                               [ 14%]
+2026-10-29T01:31:23.0571646Z path/classes.py ...                                                      [ 16%]
+2026-10-29T01:31:23.0799739Z path/masks.py ........                                                   [ 20%]
+2026-10-29T01:31:23.0959077Z path/matchers.py ...                                                     [ 22%]
+2026-10-29T01:31:24.5519122Z . .                                                                      [ 22%]
+2026-10-29T01:31:24.5678286Z tests/conftest.py ...                                                    [ 24%]
+2026-10-29T01:31:24.7209167Z tests/test_path.py ..................................................... [ 52%]
+2026-10-29T01:31:28.9680617Z ..s..................................................................... [ 90%]
+2026-10-29T01:31:29.8382382Z .................                                                        [100%]
+2026-10-29T01:31:29.8383266Z ===================================== mypy =====================================
+2026-10-29T01:31:29.8383510Z 
+2026-10-29T01:31:29.8383839Z Success: no issues found in 7 source files
+2026-10-29T01:31:29.8384200Z ================================ tests coverage ================================
+2026-10-29T01:31:29.8384674Z _______________ coverage: platform linux, python 3.13.17-final-0 _______________
+2026-10-29T01:31:29.8384998Z 
+2026-10-29T01:31:29.8385121Z Name                 Stmts   Miss  Cover   Missing
+2026-10-29T01:31:29.8385456Z --------------------------------------------------
+2026-10-29T01:31:29.8385818Z docs/conf.py            17      0   100%
+2026-10-29T01:31:29.8386227Z path/__init__.py       605      7    99%   1227, 1503, 1512, 1538-1540, 1571, 2023
+2026-10-29T01:31:29.8386636Z path/classes.py         15      0   100%
+2026-10-29T01:31:29.8386960Z path/masks.py           56      2    96%   54, 56
+2026-10-29T01:31:29.8387310Z path/matchers.py        30      0   100%
+2026-10-29T01:31:29.8387635Z tests/conftest.py        6      1    83%   13
+2026-10-29T01:31:29.8388080Z tests/test_path.py     999     11    99%   452-455, 578-579, 1239, 1251, 1269, 1341, 1415
+2026-10-29T01:31:29.8388530Z --------------------------------------------------
+2026-10-29T01:31:29.8388878Z TOTAL                 1728     21    99%
+2026-10-29T01:31:29.8389267Z ======================== 187 passed, 1 skipped in 8.89s ========================
+2026-10-29T01:31:31.0726115Z   py: OK (26.75=setup[15.30]+cmd[11.45] seconds)
+2026-10-29T01:31:31.0726551Z   congratulations :) (26.81 seconds)
+2026-10-29T01:31:31.1082938Z Post job cleanup.
+2026-10-29T01:31:31.2062064Z (node:2784) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-29T01:31:31.2062640Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-29T01:31:31.2230193Z Post job cleanup.
+2026-10-29T01:31:31.2979938Z [command]/usr/bin/git version
+2026-10-29T01:31:31.3016636Z git version 2.56.0
+2026-10-29T01:31:31.3045933Z Temporarily overriding HOME='/home/runner/work/_temp/7e075d77-3097-4996-8cad-5dc3b4c040dd' before making global git config changes
+2026-10-29T01:31:31.3046969Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-29T01:31:31.3049555Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/path/path
+2026-10-29T01:31:31.3084562Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-29T01:31:31.3116904Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-29T01:31:31.3339638Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-29T01:31:31.3372797Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-29T01:31:31.3598860Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-29T01:31:31.3639275Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-29T01:31:31.3997940Z Cleaning up orphan processes
+2026-10-29T01:31:31.4311873Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
