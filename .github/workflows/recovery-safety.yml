@@ -1,0 +1,31 @@
+name: Recovery safety - Linux and Windows
+
+on:
+  push:
+    branches:
+      - ci/recovery-safety-linux-windows-20261029
+
+permissions:
+  contents: read
+
+jobs:
+  safety:
+    name: Python 3.13 - ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install test driver
+        run: python -m pip install tox
+      - name: Full native safety and project checks
+        run: python -m tox -e py
