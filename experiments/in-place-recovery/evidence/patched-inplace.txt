@@ -1,0 +1,25 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.11.12, pytest-9.2.0, pluggy-1.7.0 -- /Users/feiyang/.codex/.chatgpt-projects/g-p-6a8bc3896c108191b1914e9af9ac0262/co-do-round6/track-d/path/../venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/feiyang/.codex/.chatgpt-projects/g-p-6a8bc3896c108191b1914e9af9ac0262/co-do-round6/track-d/path
+configfile: pytest.ini
+plugins: platformdirs-4.14.0
+collecting ... collected 128 items / 113 deselected / 15 selected
+
+tests/test_path.py::TestInPlace::test_line_by_line_rewrite PASSED        [  6%]
+tests/test_path.py::TestInPlace::test_exception_in_context PASSED        [ 13%]
+tests/test_path.py::TestInPlace::test_reader_setup_failure_restores_file[options0-LookupError] PASSED [ 20%]
+tests/test_path.py::TestInPlace::test_reader_setup_failure_restores_file[options1-ValueError] PASSED [ 26%]
+tests/test_path.py::TestInPlace::test_writer_setup_failure_restores_file PASSED [ 33%]
+tests/test_path.py::TestInPlace::test_writer_wrapping_failure_closes_resources PASSED [ 40%]
+tests/test_path.py::TestInPlace::test_base_exception_restores_file[reader-KeyboardInterrupt] PASSED [ 46%]
+tests/test_path.py::TestInPlace::test_base_exception_restores_file[reader-SystemExit] PASSED [ 53%]
+tests/test_path.py::TestInPlace::test_base_exception_restores_file[writer-KeyboardInterrupt] PASSED [ 60%]
+tests/test_path.py::TestInPlace::test_base_exception_restores_file[writer-SystemExit] PASSED [ 66%]
+tests/test_path.py::TestInPlace::test_base_exception_restores_file[body-KeyboardInterrupt] PASSED [ 73%]
+tests/test_path.py::TestInPlace::test_base_exception_restores_file[body-SystemExit] PASSED [ 80%]
+tests/test_path.py::TestInPlace::test_failed_restore_retains_backup[setup] PASSED [ 86%]
+tests/test_path.py::TestInPlace::test_failed_restore_retains_backup[body] PASSED [ 93%]
+tests/test_path.py::TestInPlace::test_write_mode_invalid PASSED          [100%]
+
+====================== 15 passed, 113 deselected in 0.05s ======================

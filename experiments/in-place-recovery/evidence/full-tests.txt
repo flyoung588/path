@@ -1,0 +1,12 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.11.12, pytest-9.2.0, pluggy-1.7.0
+rootdir: /Users/feiyang/.codex/.chatgpt-projects/g-p-6a8bc3896c108191b1914e9af9ac0262/co-do-round6/track-d/path
+configfile: pytest.ini
+plugins: platformdirs-4.14.0
+collected 128 items
+
+tests/test_path.py ....................................................s [ 41%]
+........................................................................ [ 97%]
+...                                                                      [100%]
+
+======================== 127 passed, 1 skipped in 4.32s ========================

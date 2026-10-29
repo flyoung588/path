@@ -1,0 +1,50 @@
+.pkg: install_requires> python -I -m pip install coherent.licensed 'setuptools>=77' 'setuptools_scm[toml]>=3.4.1'
+.pkg: _optional_hooks> python /Users/feiyang/.codex/.chatgpt-projects/g-p-6a8bc3896c108191b1914e9af9ac0262/co-do-round6/track-d/venv/lib/python3.11/site-packages/pyproject_api/_backend.py True setuptools.build_meta
+.pkg: get_requires_for_build_editable> python /Users/feiyang/.codex/.chatgpt-projects/g-p-6a8bc3896c108191b1914e9af9ac0262/co-do-round6/track-d/venv/lib/python3.11/site-packages/pyproject_api/_backend.py True setuptools.build_meta
+.pkg: build_editable> python /Users/feiyang/.codex/.chatgpt-projects/g-p-6a8bc3896c108191b1914e9af9ac0262/co-do-round6/track-d/venv/lib/python3.11/site-packages/pyproject_api/_backend.py True setuptools.build_meta
+py: install_package_deps> python -I -m pip install appdirs more_itertools packaging pygments 'pytest!=8.1.*,>=6' 'pytest-checkdocs>=2.14' pytest-cov 'pytest-enabler>=3.4' 'pytest-mypy>=1.0.1; platform_python_implementation != "PyPy"' 'pytest-ruff>=0.2.1; sys_platform != "cygwin"' 'pywin32; platform_system == "Windows" and python_version < "3.12"' types-pywin32
+py: install_package> python -I -m pip install --force-reinstall --no-deps /Users/feiyang/.codex/.chatgpt-projects/g-p-6a8bc3896c108191b1914e9af9ac0262/co-do-round6/track-d/path/.tox/.tmp/package/1/path-0.1.dev2+gbf1696f1e.d20261029-0.editable-py3-none-any.whl
+py: commands[0]> pytest
+============================= test session starts ==============================
+platform darwin -- Python 3.11.12, pytest-9.2.0, pluggy-1.7.0
+cachedir: .tox/py/.pytest_cache
+rootdir: /Users/feiyang/.codex/.chatgpt-projects/g-p-6a8bc3896c108191b1914e9af9ac0262/co-do-round6/track-d/path
+configfile: pytest.ini
+plugins: ruff-0.5, cov-7.1.0, checkdocs-2.14.0, enabler-3.4.0, mypy-1.1.0, platformdirs-4.14.0
+collected 150 items
+
+docs/conf.py ...                                                         [  2%]
+path/__init__.py ...                                                     [  4%]
+path/classes.py ...                                                      [  6%]
+path/masks.py ...                                                        [  8%]
+path/matchers.py ...                                                     [ 10%]
+. .                                                                      [ 10%]
+tests/conftest.py ...                                                    [ 12%]
+tests/test_path.py ..................................................... [ 48%]
+..s..................................................................... [ 96%]
+......                                                                   [100%]
+
+=============================== warnings summary ===============================
+.::project
+.::project
+  /private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/build-env-x1x7h2ni/lib/python3.11/site-packages/vcs_versioning/_backends/_git.py:709: BuildBackendWarning: "/Users/feiyang/.codex/.chatgpt-projects/g-p-6a8bc3896c108191b1914e9af9ac0262/co-do-round6/track-d/path" is shallow and may cause errors
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+===================================== mypy =====================================
+Success: no issues found in 7 source files
+================================ tests coverage ================================
+______________ coverage: platform darwin, python 3.11.12-final-0 _______________
+
+Name                 Stmts   Miss  Cover   Missing
+--------------------------------------------------
+path/__init__.py       605     35    94%   106-107, 314-315, 323, 345-347, 387, 421-422, 430, 464, 1037, 1045, 1048-1049, 1069, 1073, 1080-1081, 1102, 1141, 1159, 1187, 1227, 1503, 1512, 1538-1540, 1858-1859, 1873-1874, 2023
+path/classes.py         15      0   100%
+path/masks.py           56     20    64%   26-27, 52-65, 112, 133-134, 159, 165, 168
+path/matchers.py        30      0   100%
+tests/conftest.py        6      0   100%
+tests/test_path.py     930     10    99%   452-455, 578-579, 1239, 1251, 1269, 1326
+--------------------------------------------------
+TOTAL                 1642     65    96%
+================= 149 passed, 1 skipped, 2 warnings in 14.62s ==================
+  py: OK (84.59=setup[64.56]+cmd[20.03] seconds)
+  congratulations :) (84.67 seconds)

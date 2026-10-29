@@ -1,0 +1,344 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.11.12, pytest-9.2.0, pluggy-1.7.0 -- /Users/feiyang/.codex/.chatgpt-projects/g-p-6a8bc3896c108191b1914e9af9ac0262/co-do-round6/track-d/path/../venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/feiyang/.codex/.chatgpt-projects/g-p-6a8bc3896c108191b1914e9af9ac0262/co-do-round6/track-d/path
+configfile: pytest.ini
+plugins: platformdirs-4.14.0
+collecting ... collected 128 items / 120 deselected / 8 selected
+
+tests/test_path.py::TestInPlace::test_base_exception_restores_file[reader-KeyboardInterrupt] FAILED [ 12%]
+tests/test_path.py::TestInPlace::test_base_exception_restores_file[reader-SystemExit] FAILED [ 25%]
+tests/test_path.py::TestInPlace::test_base_exception_restores_file[writer-KeyboardInterrupt] FAILED [ 37%]
+tests/test_path.py::TestInPlace::test_base_exception_restores_file[writer-SystemExit] FAILED [ 50%]
+tests/test_path.py::TestInPlace::test_base_exception_restores_file[body-KeyboardInterrupt] FAILED [ 62%]
+tests/test_path.py::TestInPlace::test_base_exception_restores_file[body-SystemExit] FAILED [ 75%]
+tests/test_path.py::TestInPlace::test_failed_restore_retains_backup[setup] FAILED [ 87%]
+tests/test_path.py::TestInPlace::test_failed_restore_retains_backup[body] FAILED [100%]
+
+=================================== FAILURES ===================================
+___ TestInPlace.test_base_exception_restores_file[reader-KeyboardInterrupt] ____
+
+self = <tests.test_path.TestInPlace object at 0x1055f6b90>
+tmpdir = local('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-14/test_base_exception_restores_f0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1055cde10>
+error = <class 'KeyboardInterrupt'>, stage = 'reader'
+
+    @pytest.mark.parametrize('error', [KeyboardInterrupt, SystemExit])
+    @pytest.mark.parametrize('stage', ['reader', 'writer', 'body'])
+    def test_base_exception_restores_file(self, tmpdir, monkeypatch, error, stage):
+        doc = self.create_reference(tmpdir)
+        original_open = open
+    
+        def interrupt_open(file, *args, **kwargs):
+            if (stage == 'reader' and not isinstance(file, int)) or (
+                stage == 'writer' and isinstance(file, int)
+            ):
+                raise error('interrupted')
+            return original_open(file, *args, **kwargs)
+    
+        with monkeypatch.context() as patched:
+            patched.setattr(path, 'open', interrupt_open, raising=False)
+            with pytest.raises(error, match='interrupted'), doc.in_place(encoding='utf-8') as (_, writer):
+                writer.write('replacement')
+                raise error('interrupted')
+>       assert doc.read_text(encoding='utf-8') == self.reference_content
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_path.py:1295: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+path/__init__.py:832: in read_text
+    with self.open(encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Path('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-14/test_base_exception_restores_f0/document')
+args = (), kwargs = {'encoding': 'utf-8', 'errors': None}
+
+    def open(self, *args, **kwargs):
+        """Open this file and return a corresponding file object.
+    
+        Keyword arguments work as in :func:`io.open`.  If the file cannot be
+        opened, an :class:`OSError` is raised.
+        """
+>       return open(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: Path('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-14/test_base_exception_restores_f0/document')
+
+path/__init__.py:756: FileNotFoundError
+_______ TestInPlace.test_base_exception_restores_file[reader-SystemExit] _______
+
+self = <tests.test_path.TestInPlace object at 0x1055f4110>
+tmpdir = local('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-14/test_base_exception_restores_f1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1052ec7d0>
+error = <class 'SystemExit'>, stage = 'reader'
+
+    @pytest.mark.parametrize('error', [KeyboardInterrupt, SystemExit])
+    @pytest.mark.parametrize('stage', ['reader', 'writer', 'body'])
+    def test_base_exception_restores_file(self, tmpdir, monkeypatch, error, stage):
+        doc = self.create_reference(tmpdir)
+        original_open = open
+    
+        def interrupt_open(file, *args, **kwargs):
+            if (stage == 'reader' and not isinstance(file, int)) or (
+                stage == 'writer' and isinstance(file, int)
+            ):
+                raise error('interrupted')
+            return original_open(file, *args, **kwargs)
+    
+        with monkeypatch.context() as patched:
+            patched.setattr(path, 'open', interrupt_open, raising=False)
+            with pytest.raises(error, match='interrupted'), doc.in_place(encoding='utf-8') as (_, writer):
+                writer.write('replacement')
+                raise error('interrupted')
+>       assert doc.read_text(encoding='utf-8') == self.reference_content
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_path.py:1295: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+path/__init__.py:832: in read_text
+    with self.open(encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Path('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-14/test_base_exception_restores_f1/document')
+args = (), kwargs = {'encoding': 'utf-8', 'errors': None}
+
+    def open(self, *args, **kwargs):
+        """Open this file and return a corresponding file object.
+    
+        Keyword arguments work as in :func:`io.open`.  If the file cannot be
+        opened, an :class:`OSError` is raised.
+        """
+>       return open(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: Path('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-14/test_base_exception_restores_f1/document')
+
+path/__init__.py:756: FileNotFoundError
+___ TestInPlace.test_base_exception_restores_file[writer-KeyboardInterrupt] ____
+
+self = <tests.test_path.TestInPlace object at 0x1055f5490>
+tmpdir = local('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-14/test_base_exception_restores_f2')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1054e1f90>
+error = <class 'KeyboardInterrupt'>, stage = 'writer'
+
+    @pytest.mark.parametrize('error', [KeyboardInterrupt, SystemExit])
+    @pytest.mark.parametrize('stage', ['reader', 'writer', 'body'])
+    def test_base_exception_restores_file(self, tmpdir, monkeypatch, error, stage):
+        doc = self.create_reference(tmpdir)
+        original_open = open
+    
+        def interrupt_open(file, *args, **kwargs):
+            if (stage == 'reader' and not isinstance(file, int)) or (
+                stage == 'writer' and isinstance(file, int)
+            ):
+                raise error('interrupted')
+            return original_open(file, *args, **kwargs)
+    
+        with monkeypatch.context() as patched:
+            patched.setattr(path, 'open', interrupt_open, raising=False)
+            with pytest.raises(error, match='interrupted'), doc.in_place(encoding='utf-8') as (_, writer):
+                writer.write('replacement')
+                raise error('interrupted')
+>       assert doc.read_text(encoding='utf-8') == self.reference_content
+E       AssertionError: assert '' == 'The quick br...e lazy dog.\n'
+E         
+E         - The quick brown fox jumped over the lazy dog.
+
+tests/test_path.py:1295: AssertionError
+_______ TestInPlace.test_base_exception_restores_file[writer-SystemExit] _______
+
+self = <tests.test_path.TestInPlace object at 0x1055f51d0>
+tmpdir = local('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-14/test_base_exception_restores_f3')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10548bd10>
+error = <class 'SystemExit'>, stage = 'writer'
+
+    @pytest.mark.parametrize('error', [KeyboardInterrupt, SystemExit])
+    @pytest.mark.parametrize('stage', ['reader', 'writer', 'body'])
+    def test_base_exception_restores_file(self, tmpdir, monkeypatch, error, stage):
+        doc = self.create_reference(tmpdir)
+        original_open = open
+    
+        def interrupt_open(file, *args, **kwargs):
+            if (stage == 'reader' and not isinstance(file, int)) or (
+                stage == 'writer' and isinstance(file, int)
+            ):
+                raise error('interrupted')
+            return original_open(file, *args, **kwargs)
+    
+        with monkeypatch.context() as patched:
+            patched.setattr(path, 'open', interrupt_open, raising=False)
+            with pytest.raises(error, match='interrupted'), doc.in_place(encoding='utf-8') as (_, writer):
+                writer.write('replacement')
+                raise error('interrupted')
+>       assert doc.read_text(encoding='utf-8') == self.reference_content
+E       AssertionError: assert '' == 'The quick br...e lazy dog.\n'
+E         
+E         - The quick brown fox jumped over the lazy dog.
+
+tests/test_path.py:1295: AssertionError
+____ TestInPlace.test_base_exception_restores_file[body-KeyboardInterrupt] _____
+
+self = <tests.test_path.TestInPlace object at 0x1055f4fd0>
+tmpdir = local('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-14/test_base_exception_restores_f4')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1054ee1d0>
+error = <class 'KeyboardInterrupt'>, stage = 'body'
+
+    @pytest.mark.parametrize('error', [KeyboardInterrupt, SystemExit])
+    @pytest.mark.parametrize('stage', ['reader', 'writer', 'body'])
+    def test_base_exception_restores_file(self, tmpdir, monkeypatch, error, stage):
+        doc = self.create_reference(tmpdir)
+        original_open = open
+    
+        def interrupt_open(file, *args, **kwargs):
+            if (stage == 'reader' and not isinstance(file, int)) or (
+                stage == 'writer' and isinstance(file, int)
+            ):
+                raise error('interrupted')
+            return original_open(file, *args, **kwargs)
+    
+        with monkeypatch.context() as patched:
+            patched.setattr(path, 'open', interrupt_open, raising=False)
+            with pytest.raises(error, match='interrupted'), doc.in_place(encoding='utf-8') as (_, writer):
+                writer.write('replacement')
+                raise error('interrupted')
+>       assert doc.read_text(encoding='utf-8') == self.reference_content
+E       AssertionError: assert 'replacement' == 'The quick br...e lazy dog.\n'
+E         
+E         - The quick brown fox jumped over the lazy dog.
+E         + replacement
+
+tests/test_path.py:1295: AssertionError
+________ TestInPlace.test_base_exception_restores_file[body-SystemExit] ________
+
+self = <tests.test_path.TestInPlace object at 0x1055f5f10>
+tmpdir = local('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-14/test_base_exception_restores_f5')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1054568d0>
+error = <class 'SystemExit'>, stage = 'body'
+
+    @pytest.mark.parametrize('error', [KeyboardInterrupt, SystemExit])
+    @pytest.mark.parametrize('stage', ['reader', 'writer', 'body'])
+    def test_base_exception_restores_file(self, tmpdir, monkeypatch, error, stage):
+        doc = self.create_reference(tmpdir)
+        original_open = open
+    
+        def interrupt_open(file, *args, **kwargs):
+            if (stage == 'reader' and not isinstance(file, int)) or (
+                stage == 'writer' and isinstance(file, int)
+            ):
+                raise error('interrupted')
+            return original_open(file, *args, **kwargs)
+    
+        with monkeypatch.context() as patched:
+            patched.setattr(path, 'open', interrupt_open, raising=False)
+            with pytest.raises(error, match='interrupted'), doc.in_place(encoding='utf-8') as (_, writer):
+                writer.write('replacement')
+                raise error('interrupted')
+>       assert doc.read_text(encoding='utf-8') == self.reference_content
+E       AssertionError: assert 'replacement' == 'The quick br...e lazy dog.\n'
+E         
+E         - The quick brown fox jumped over the lazy dog.
+E         + replacement
+
+tests/test_path.py:1295: AssertionError
+____________ TestInPlace.test_failed_restore_retains_backup[setup] _____________
+
+self = <tests.test_path.TestInPlace object at 0x1055f6450>
+tmpdir = local('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-14/test_failed_restore_retains_ba0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x105420150>
+stage = 'setup'
+
+    @pytest.mark.parametrize('stage', ['setup', 'body'])
+    def test_failed_restore_retains_backup(self, tmpdir, monkeypatch, stage):
+        doc = self.create_reference(tmpdir)
+        backup = doc + '.bak'
+        original_rename = Path.rename
+    
+        def fail_restore(source, destination):
+            if source == backup:
+                raise PermissionError('cannot restore original')
+            return original_rename(source, destination)
+    
+        monkeypatch.setattr(Path, 'rename', fail_restore)
+        options = {'encoding': 'missing-codec' if stage == 'setup' else 'utf-8'}
+        with pytest.raises(PermissionError, match='cannot restore original'), doc.in_place(**options):
+            raise RuntimeError('body failed')
+>       assert backup.read_text(encoding='utf-8') == self.reference_content
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_path.py:1313: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+path/__init__.py:832: in read_text
+    with self.open(encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Path('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-14/test_failed_restore_retains_ba0/document.bak')
+args = (), kwargs = {'encoding': 'utf-8', 'errors': None}
+
+    def open(self, *args, **kwargs):
+        """Open this file and return a corresponding file object.
+    
+        Keyword arguments work as in :func:`io.open`.  If the file cannot be
+        opened, an :class:`OSError` is raised.
+        """
+>       return open(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: Path('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-14/test_failed_restore_retains_ba0/document.bak')
+
+path/__init__.py:756: FileNotFoundError
+_____________ TestInPlace.test_failed_restore_retains_backup[body] _____________
+
+self = <tests.test_path.TestInPlace object at 0x1055f6990>
+tmpdir = local('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-14/test_failed_restore_retains_ba1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10516f710>
+stage = 'body'
+
+    @pytest.mark.parametrize('stage', ['setup', 'body'])
+    def test_failed_restore_retains_backup(self, tmpdir, monkeypatch, stage):
+        doc = self.create_reference(tmpdir)
+        backup = doc + '.bak'
+        original_rename = Path.rename
+    
+        def fail_restore(source, destination):
+            if source == backup:
+                raise PermissionError('cannot restore original')
+            return original_rename(source, destination)
+    
+        monkeypatch.setattr(Path, 'rename', fail_restore)
+        options = {'encoding': 'missing-codec' if stage == 'setup' else 'utf-8'}
+        with pytest.raises(PermissionError, match='cannot restore original'), doc.in_place(**options):
+            raise RuntimeError('body failed')
+>       assert backup.read_text(encoding='utf-8') == self.reference_content
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_path.py:1313: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+path/__init__.py:832: in read_text
+    with self.open(encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Path('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-14/test_failed_restore_retains_ba1/document.bak')
+args = (), kwargs = {'encoding': 'utf-8', 'errors': None}
+
+    def open(self, *args, **kwargs):
+        """Open this file and return a corresponding file object.
+    
+        Keyword arguments work as in :func:`io.open`.  If the file cannot be
+        opened, an :class:`OSError` is raised.
+        """
+>       return open(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: Path('/private/var/folders/qw/scc1qs1x3sgf826x2f24v5tw0000gn/T/pytest-of-feiyang/pytest-14/test_failed_restore_retains_ba1/document.bak')
+
+path/__init__.py:756: FileNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_path.py::TestInPlace::test_base_exception_restores_file[reader-KeyboardInterrupt]
+FAILED tests/test_path.py::TestInPlace::test_base_exception_restores_file[reader-SystemExit]
+FAILED tests/test_path.py::TestInPlace::test_base_exception_restores_file[writer-KeyboardInterrupt]
+FAILED tests/test_path.py::TestInPlace::test_base_exception_restores_file[writer-SystemExit]
+FAILED tests/test_path.py::TestInPlace::test_base_exception_restores_file[body-KeyboardInterrupt]
+FAILED tests/test_path.py::TestInPlace::test_base_exception_restores_file[body-SystemExit]
+FAILED tests/test_path.py::TestInPlace::test_failed_restore_retains_backup[setup]
+FAILED tests/test_path.py::TestInPlace::test_failed_restore_retains_backup[body]
+====================== 8 failed, 120 deselected in 0.30s =======================
